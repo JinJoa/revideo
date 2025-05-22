@@ -1,0 +1,23 @@
+{
+  "name": "revideo",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "revideo editor --projectFile ./src/project.tsx",
+    "render": "tsc && node dist/render.js"
+  },
+  "dependencies": {
+    "@deepgram/sdk": "^4.2.0",
+    "@revideo/2d": "0.10.4",
+    "@revideo/core": "0.10.4",
+    "@revideo/renderer": "0.10.4",
+    "dotenv": "^16.5.0",
+    "openai": "^4.102.0"
+  },
+  "devDependencies": {
+    "@revideo/cli": "0.10.4",
+    "@revideo/ui": "0.10.4",
+    "typescript": "5.5.4",
+    "vite": "^4.5"
+  }
+}
