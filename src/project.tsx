@@ -67,7 +67,7 @@ const scene = makeScene2D('scene', function* (view) {
         ref={textContainer}
       />
       <Audio
-        src={"src/audio/ElevenLabs_Text_to_Speech_audio.mp3"}
+        src={"public/audio/ElevenLabs_Text_to_Speech_audio.mp3"}
         play={true}
       />
       <Audio

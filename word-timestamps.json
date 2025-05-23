@@ -1,0 +1,513 @@
+[
+  {
+    "word": "왜",
+    "start": 0.08,
+    "end": 0.39999998,
+    "confidence": 0.99902344,
+    "punctuated_word": "왜"
+  },
+  {
+    "word": "샴푸",
+    "start": 0.39999998,
+    "end": 0.64,
+    "confidence": 0.9970703,
+    "punctuated_word": "샴푸"
+  },
+  {
+    "word": "할수록",
+    "start": 0.64,
+    "end": 1.14,
+    "confidence": 0.91137695,
+    "punctuated_word": "할수록"
+  },
+  {
+    "word": "머리카락이",
+    "start": 1.28,
+    "end": 1.78,
+    "confidence": 0.99121094,
+    "punctuated_word": "머리카락이"
+  },
+  {
+    "word": "통장",
+    "start": 2.24,
+    "end": 2.6399999,
+    "confidence": 0.96435547,
+    "punctuated_word": "통장"
+  },
+  {
+    "word": "장호처럼",
+    "start": 2.6399999,
+    "end": 3.1399999,
+    "confidence": 0.68963623,
+    "punctuated_word": "장호처럼"
+  },
+  {
+    "word": "줄어들까",
+    "start": 3.28,
+    "end": 3.78,
+    "confidence": 0.7282715,
+    "punctuated_word": "줄어들까?"
+  },
+  {
+    "word": "나도",
+    "start": 4.24,
+    "end": 4.64,
+    "confidence": 1,
+    "punctuated_word": "나도"
+  },
+  {
+    "word": "모르게",
+    "start": 4.64,
+    "end": 5.12,
+    "confidence": 0.99902344,
+    "punctuated_word": "모르게"
+  },
+  {
+    "word": "머리수티",
+    "start": 5.12,
+    "end": 5.62,
+    "confidence": 0.8927409,
+    "punctuated_word": "머리수티"
+  },
+  {
+    "word": "지갑처럼",
+    "start": 5.68,
+    "end": 6.18,
+    "confidence": 0.9550781,
+    "punctuated_word": "지갑처럼"
+  },
+  {
+    "word": "얇아지던",
+    "start": 6.24,
+    "end": 6.74,
+    "confidence": 0.96728516,
+    "punctuated_word": "얇아지던"
+  },
+  {
+    "word": "날",
+    "start": 7.3599997,
+    "end": 7.52,
+    "confidence": 0.7375488,
+    "punctuated_word": "날,"
+  },
+  {
+    "word": "아나세를",
+    "start": 7.52,
+    "end": 8.02,
+    "confidence": 0.4831543,
+    "punctuated_word": "아나세를"
+  },
+  {
+    "word": "만나고",
+    "start": 8.72,
+    "end": 8.88,
+    "confidence": 1,
+    "punctuated_word": "만나고"
+  },
+  {
+    "word": "털망했던",
+    "start": 8.88,
+    "end": 9.38,
+    "confidence": 0.97998047,
+    "punctuated_word": "털망했던"
+  },
+  {
+    "word": "머리가",
+    "start": 9.679999,
+    "end": 10.179999,
+    "confidence": 1,
+    "punctuated_word": "머리가"
+  },
+  {
+    "word": "부활템",
+    "start": 10.4,
+    "end": 10.9,
+    "confidence": 0.9716797,
+    "punctuated_word": "부활템"
+  },
+  {
+    "word": "착용함",
+    "start": 11.04,
+    "end": 11.54,
+    "confidence": 0.9892578,
+    "punctuated_word": "착용함"
+  },
+  {
+    "word": "탈모약",
+    "start": 12.16,
+    "end": 12.66,
+    "confidence": 0.6166992,
+    "punctuated_word": "탈모약?"
+  },
+  {
+    "word": "화장품도",
+    "start": 12.96,
+    "end": 13.46,
+    "confidence": 0.9946289,
+    "punctuated_word": "화장품도"
+  },
+  {
+    "word": "아닌",
+    "start": 13.84,
+    "end": 14.08,
+    "confidence": 0.99609375,
+    "punctuated_word": "아닌"
+  },
+  {
+    "word": "뭔가",
+    "start": 14.08,
+    "end": 14.58,
+    "confidence": 0.99902344,
+    "punctuated_word": "뭔가"
+  },
+  {
+    "word": "쓸",
+    "start": 14.685,
+    "end": 14.925,
+    "confidence": 0.9941406,
+    "punctuated_word": "쓸"
+  },
+  {
+    "word": "때마다",
+    "start": 14.925,
+    "end": 15.425,
+    "confidence": 0.9707031,
+    "punctuated_word": "때마다"
+  },
+  {
+    "word": "머리",
+    "start": 15.725,
+    "end": 16.045,
+    "confidence": 0.9941406,
+    "punctuated_word": "머리"
+  },
+  {
+    "word": "뿌리가",
+    "start": 16.045,
+    "end": 16.545,
+    "confidence": 0.5839844,
+    "punctuated_word": "뿌리가"
+  },
+  {
+    "word": "외계인",
+    "start": 16.605,
+    "end": 17.105,
+    "confidence": 0.99902344,
+    "punctuated_word": "외계인"
+  },
+  {
+    "word": "침공당하는",
+    "start": 17.245,
+    "end": 17.745,
+    "confidence": 0.76416016,
+    "punctuated_word": "침공당하는"
+  },
+  {
+    "word": "느낌",
+    "start": 17.765,
+    "end": 18.265,
+    "confidence": 1,
+    "punctuated_word": "느낌"
+  },
+  {
+    "word": "아나셀은",
+    "start": 18.285,
+    "end": 18.785,
+    "confidence": 0.70996094,
+    "punctuated_word": "아나셀은"
+  },
+  {
+    "word": "jk혁재와",
+    "start": 19.645,
+    "end": 20.145,
+    "confidence": 0.69077146,
+    "punctuated_word": "JK혁재와"
+  },
+  {
+    "word": "wnta",
+    "start": 20.525,
+    "end": 21.025,
+    "confidence": 0.83447266,
+    "punctuated_word": "WNTA"
+  },
+  {
+    "word": "오",
+    "start": 21.405,
+    "end": 21.725,
+    "confidence": 0.8828125,
+    "punctuated_word": "오"
+  },
+  {
+    "word": "절로",
+    "start": 21.725,
+    "end": 22.125,
+    "confidence": 0.9550781,
+    "punctuated_word": "절로"
+  },
+  {
+    "word": "잠자는",
+    "start": 22.125,
+    "end": 22.625,
+    "confidence": 0.9550781,
+    "punctuated_word": "잠자는"
+  },
+  {
+    "word": "모발을",
+    "start": 22.685001,
+    "end": 23.165,
+    "confidence": 0.9975586,
+    "punctuated_word": "모발을"
+  },
+  {
+    "word": "깨워준다",
+    "start": 23.165,
+    "end": 23.665,
+    "confidence": 0.9267578,
+    "punctuated_word": "깨워준다."
+  },
+  {
+    "word": "식약청",
+    "start": 24.525002,
+    "end": 25.025002,
+    "confidence": 0.921875,
+    "punctuated_word": "식약청"
+  },
+  {
+    "word": "인증받은",
+    "start": 25.165,
+    "end": 25.665,
+    "confidence": 0.8869629,
+    "punctuated_word": "인증받은"
+  },
+  {
+    "word": "최초의",
+    "start": 25.805,
+    "end": 26.305,
+    "confidence": 0.9995117,
+    "punctuated_word": "최초의"
+  },
+  {
+    "word": "탈모",
+    "start": 26.445,
+    "end": 26.845001,
+    "confidence": 0.9980469,
+    "punctuated_word": "탈모"
+  },
+  {
+    "word": "기능성",
+    "start": 26.845001,
+    "end": 27.244999,
+    "confidence": 0.99609375,
+    "punctuated_word": "기능성"
+  },
+  {
+    "word": "화장품",
+    "start": 27.244999,
+    "end": 27.744999,
+    "confidence": 0.9980469,
+    "punctuated_word": "화장품"
+  },
+  {
+    "word": "발모주기인",
+    "start": 28.285,
+    "end": 28.785,
+    "confidence": 0.85998535,
+    "punctuated_word": "발모주기인"
+  },
+  {
+    "word": "세",
+    "start": 29.085,
+    "end": 29.325,
+    "confidence": 0.9770508,
+    "punctuated_word": "세"
+  },
+  {
+    "word": "달을",
+    "start": 29.325,
+    "end": 29.645,
+    "confidence": 0.98168945,
+    "punctuated_word": "달을"
+  },
+  {
+    "word": "써보니",
+    "start": 29.645,
+    "end": 30.145,
+    "confidence": 0.8881836,
+    "punctuated_word": "써보니"
+  },
+  {
+    "word": "빗자루",
+    "start": 30.43,
+    "end": 30.93,
+    "confidence": 0.99609375,
+    "punctuated_word": "빗자루"
+  },
+  {
+    "word": "머리가",
+    "start": 30.963333,
+    "end": 31.463333,
+    "confidence": 0.9941406,
+    "punctuated_word": "머리가"
+  },
+  {
+    "word": "고슴도치",
+    "start": 31.496666,
+    "end": 31.996666,
+    "confidence": 0.8881836,
+    "punctuated_word": "고슴도치"
+  },
+  {
+    "word": "머리로",
+    "start": 32.03,
+    "end": 32.53,
+    "confidence": 0.91845703,
+    "punctuated_word": "머리로"
+  },
+  {
+    "word": "진화",
+    "start": 32.56333,
+    "end": 33.06333,
+    "confidence": 0.99316406,
+    "punctuated_word": "진화"
+  },
+  {
+    "word": "중",
+    "start": 33.09667,
+    "end": 33.59667,
+    "confidence": 0.7441406,
+    "punctuated_word": "중"
+  },
+  {
+    "word": "판교",
+    "start": 33.63,
+    "end": 34.13,
+    "confidence": 0.7729492,
+    "punctuated_word": "판교"
+  },
+  {
+    "word": "헤어샵",
+    "start": 34.163334,
+    "end": 34.663334,
+    "confidence": 0.9658203,
+    "punctuated_word": "헤어샵"
+  },
+  {
+    "word": "사장님이",
+    "start": 34.696667,
+    "end": 35.196667,
+    "confidence": 0.9970703,
+    "punctuated_word": "사장님이"
+  },
+  {
+    "word": "이거",
+    "start": 35.23,
+    "end": 35.55,
+    "confidence": 0.9980469,
+    "punctuated_word": "이거"
+  },
+  {
+    "word": "뭐냐고",
+    "start": 35.55,
+    "end": 36.05,
+    "confidence": 0.99902344,
+    "punctuated_word": "뭐냐고"
+  },
+  {
+    "word": "물어볼",
+    "start": 36.190002,
+    "end": 36.59,
+    "confidence": 0.9277344,
+    "punctuated_word": "물어볼"
+  },
+  {
+    "word": "정도로",
+    "start": 36.59,
+    "end": 37.09,
+    "confidence": 0.97802734,
+    "punctuated_word": "정도로"
+  },
+  {
+    "word": "풍성해짐",
+    "start": 37.15,
+    "end": 37.65,
+    "confidence": 0.9470215,
+    "punctuated_word": "풍성해짐"
+  },
+  {
+    "word": "여성이나",
+    "start": 38.27,
+    "end": 38.77,
+    "confidence": 0.97802734,
+    "punctuated_word": "여성이나"
+  },
+  {
+    "word": "아이들",
+    "start": 39.15,
+    "end": 39.55,
+    "confidence": 1,
+    "punctuated_word": "아이들"
+  },
+  {
+    "word": "탈모에도",
+    "start": 39.55,
+    "end": 40.05,
+    "confidence": 0.9802246,
+    "punctuated_word": "탈모에도"
+  },
+  {
+    "word": "안전하게",
+    "start": 40.27,
+    "end": 40.77,
+    "confidence": 1,
+    "punctuated_word": "안전하게"
+  },
+  {
+    "word": "사용할",
+    "start": 40.989998,
+    "end": 41.39,
+    "confidence": 0.99609375,
+    "punctuated_word": "사용할"
+  },
+  {
+    "word": "수",
+    "start": 41.39,
+    "end": 41.71,
+    "confidence": 0.98095703,
+    "punctuated_word": "수"
+  },
+  {
+    "word": "있어",
+    "start": 41.71,
+    "end": 42.190002,
+    "confidence": 0.9941406,
+    "punctuated_word": "있어"
+  },
+  {
+    "word": "지금",
+    "start": 42.190002,
+    "end": 42.59,
+    "confidence": 1,
+    "punctuated_word": "지금"
+  },
+  {
+    "word": "아나셀",
+    "start": 42.59,
+    "end": 43.09,
+    "confidence": 0.91308594,
+    "punctuated_word": "아나셀"
+  },
+  {
+    "word": "홈페이지를",
+    "start": 43.15,
+    "end": 43.65,
+    "confidence": 0.984375,
+    "punctuated_word": "홈페이지를"
+  },
+  {
+    "word": "검색해봐",
+    "start": 43.87,
+    "end": 44.37,
+    "confidence": 0.9177246,
+    "punctuated_word": "검색해봐"
+  }
+]

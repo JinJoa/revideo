@@ -353,6 +353,90 @@ function* highlightCurrentWord(container: Reference<Layout>, currentBatch: Word[
 
 ## 자산 생성 함수
 
+### process-audio.js
+
+**위치**: 프로젝트 루트 디렉토리
+
+**목적**: 오디오 파일에서 단어 타임스탬프를 추출하고 metadata.json 파일을 생성합니다.
+
+**사용 방법**:
+```bash
+node process-audio.js <오디오파일경로> [오디오출력이름] [이미지경로1,이미지경로2,...]
+```
+
+**매개변수**:
+- `<오디오파일경로>`: 분석할 오디오 파일의 경로 (필수)
+- `[오디오출력이름]`: metadata.json에 저장될 오디오 파일 이름 (기본값: audio.wav)
+- `[이미지경로1,이미지경로2,...]`: 비디오에 사용할 이미지 경로 목록 (쉼표로 구분, 기본값: src/images/cartoon_*.png)
+
+**설명**:
+이 스크립트는 Deepgram API를 사용하여 오디오 파일에서 단어 타임스탬프를 추출하고, 이를 metadata.json 파일로 저장합니다. 이 파일은 Revideo 프로젝트에서 비디오 렌더링에 사용됩니다.
+
+```javascript
+// process-audio.js
+import 'dotenv/config';
+import { createClient } from "@deepgram/sdk";
+import * as fs from "fs";
+import path from 'path';
+
+// 명령줄 인수 처리
+const audioFilePath = process.argv[2];
+const audioOutputName = process.argv[3] || 'audio.wav';
+const imagePathsArg = process.argv[4] || 'src/images/cartoon_1.png,src/images/cartoon_2.png,src/images/cartoon_3.png';
+
+if (!audioFilePath) {
+  console.error('사용법: node process-audio.js <오디오파일경로> [오디오출력이름] [이미지경로1,이미지경로2,...]');
+  process.exit(1);
+}
+
+// 이미지 경로 목록 파싱
+const imagePaths = imagePathsArg.split(',');
+
+// API 키 확인
+const deepgram = createClient(process.env.DEEPGRAM_API_KEY || "");
+
+async function getWordTimestamps(audioFilePath) {
+  // 오디오 파일에서 단어 타임스탬프 추출
+  const response = await deepgram.listen.prerecorded.transcribeFile(fs.readFileSync(audioFilePath), {
+    model: "nova-2",
+    smart_format: true,
+    language: "ko",
+    detect_language: true
+  });
+  
+  return response.result.results.channels[0].alternatives[0].words;
+}
+
+async function main() {
+  // 단어 타임스탬프 추출
+  const words = await getWordTimestamps(audioFilePath);
+  
+  // 메타데이터 객체 생성
+  const metadata = {
+    audioUrl: audioOutputName,
+    images: imagePaths,
+    words: words
+  };
+  
+  // metadata.json 파일 저장
+  fs.writeFileSync('src/metadata.json', JSON.stringify(metadata, null, 2));
+}
+
+main();
+```
+
+**예시**:
+```bash
+# 기본 옵션으로 실행
+node process-audio.js ./public/audio/ElevenLabs_Text_to_Speech_audio.mp3
+
+# 오디오 출력 이름 지정
+node process-audio.js ./public/audio/ElevenLabs_Text_to_Speech_audio.mp3 my-audio.wav
+
+# 이미지 경로 지정
+node process-audio.js ./public/audio/ElevenLabs_Text_to_Speech_audio.mp3 my-audio.wav public/images/img1.png,public/images/img2.png
+```
+
 ### createAssets
 
 **위치**: `src/get-assets.ts`

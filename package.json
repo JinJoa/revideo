@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "start": "revideo editor --projectFile ./src/project.tsx",
-    "render": "tsc && node dist/render.js"
+    "render": "tsc && node dist/render.js",
+    "get-assets": "tsc && node dist/get-assets.js"
   },
   "dependencies": {
     "@deepgram/sdk": "^4.2.0",
