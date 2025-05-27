@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 // import { getVideoScript, generateAudio, getWordTimestamps } from './render';
-import { getVideoScript, generateAudio, getWordTimestamps } from './scenes/utils';
+import { getVideoScript, generateAudio, getWordTimestamps } from './utils';
 //import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs';
 

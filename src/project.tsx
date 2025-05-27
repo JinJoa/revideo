@@ -35,10 +35,10 @@ const textSettings: captionSettings = {
   fontFamily: "Mulish",
   stream: false, // if true, words appear one by one
   textAlign: "center",
-  textBoxWidthInPercent: 70,
+  textBoxWidthInPercent: 90,
   fadeInAnimation: true,
-  currentWordColor: "cyan",
-  currentWordBackgroundColor: "red", // adds a colored box to the word currently spoken
+  currentWordColor: "black",
+  currentWordBackgroundColor: "white",
   shadowColor: "black",
   shadowBlur: 30
 }
@@ -58,14 +58,19 @@ const scene = makeScene2D('scene', function* (view) {
 
   yield view.add(
     <>
-      <Layout
-        size={"100%"}
-        ref={imageContainer}
-      />
-      <Layout
-        size={"100%"}
-        ref={textContainer}
-      />
+      <Layout size={"100%"} justifyContent={"center"} alignItems={"center"}>
+        <Rect size={["56.25%", "100%"]} fill="black" radius={0} direction={"column"} justifyContent={"center"} alignItems={"center"}>
+          <Layout size={["100%", "12%"]} justifyContent={"center"} alignItems={"center"}>
+            <Txt fontSize={70} fontWeight={900} fill="white" fontFamily="Mulish" textAlign="center" shadowBlur={20} shadowColor="black">아나셀 화장품</Txt>
+          </Layout>
+          <Layout size={["100%", "60%"]} justifyContent={"center"} alignItems={"center"} ref={imageContainer} />
+          <Layout size={["100%", "18%"]} justifyContent={"center"} alignItems={"center"}>
+            <Rect size={["100%", "100%"]} fill="black" justifyContent={"center"} alignItems={"center"}>
+              <Layout size={["100%", "100%"]} justifyContent={"center"} alignItems={"center"} ref={textContainer} />
+            </Rect>
+          </Layout>
+        </Rect>
+      </Layout>
       <Audio
         src={"public/audio/ElevenLabs_Text_to_Speech_audio.mp3"}
         play={true}
