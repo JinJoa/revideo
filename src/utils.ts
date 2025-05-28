@@ -4,8 +4,6 @@ import OpenAI from 'openai/index.mjs';
 import axios from "axios";
 import * as fs from "fs";
 import { createClient } from "@deepgram/sdk";
-import { Img, makeScene2D, Video } from '@revideo/2d';
-import { waitFor } from '@revideo/core';
 
 
 const deepgram = createClient(process.env["DEEPGRAM_API_KEY"] || "");
@@ -126,25 +124,3 @@ export async function dalleGenerate(prompt: string, savePath: string) {
 		throw error; // Rethrow the error so it can be handled by the caller
 	  }
 	}
-
-// export default makeScene2D('cartoon', function* (view) {
-// //   const images: string[] = [
-// //     'src/images/cartoon_1.png',
-// //     'src/images/cartoon_2.png',
-// //     'src/images/cartoon_3.png',
-// //   ];
-
-// //   for (const path of images) {
-// //     const img = yield view.add(<Img src={path}/>);
-// //     yield* waitFor(2);
-// //     img.remove();
-// //   }
-// yield* view.add(<Img src={'src/images/cartoon_1.png'} />);
-// yield* waitFor(1);
-// yield* view.add(<Img src={'src/images/cartoon_2.png'} />);
-// yield* waitFor(1);
-// yield* view.add(<Img src={'src/images/cartoon_3.png'} />);
-// yield* waitFor(1);
-// //   yield view.add(<Img src={'/images/cartoon_전체.jpg'} size="100%" />);
-// //   yield* waitFor(3); // 전체컷 3초 노출
-// });

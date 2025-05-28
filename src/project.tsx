@@ -43,13 +43,8 @@ const scene = makeScene2D('scene', function* (view) {
   // 마지막 단어의 종료 시간 + 0.5초를 전체 지속 시간으로 설정
   const duration = words[words.length-1].end + 0.5;
 
-  // 이미지 배열을 StructuredSlide 배열로 변환
-  const images = [
-    '/images/cartoon_1.png',
-    '/images/cartoon_2.png',
-    '/images/cartoon_3.png',
-    '/images/cartoon_전체.png'
-  ];
+  // metadata.json에서 모든 이미지 가져오기
+  const images = metadata.images;
 
   const slides = images.map((image, index) => ({
     content: {
@@ -140,7 +135,8 @@ const scene = makeScene2D('scene', function* (view) {
   // 슬라이드 바디 생성
   const slideBody = createSlideBody({
     slides,
-    view
+    view,
+    imageContainer
   });
 
   // 슬라이드 푸터 생성

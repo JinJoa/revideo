@@ -10,6 +10,7 @@ import { StructuredSlide } from '../types/slide'
 interface SlideBodyProps {
   slides: StructuredSlide[]
   view: View2D
+  imageContainer?: Reference<Layout>
 }
 
 interface SlideBodyResult {
@@ -17,21 +18,35 @@ interface SlideBodyResult {
   playSlides: () => ThreadGenerator;
 }
 
-export function createSlideBody({ slides, view }: SlideBodyProps): SlideBodyResult {
+export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps): SlideBodyResult {
   const imageRef = createRef<Img>()
 
-  // 첫 번째 이미지 추가
-  view.add(
+  // 첫 번째 이미지 추가 - imageContainer가 있으면 그곳에, 없으면 view에 추가
+  if (imageContainer) {
+    imageContainer().add(
     <Img
       ref={imageRef}
       src={slides[0].content.image}
-      height={900}
+      width={"100%"}  // 컨테이너에 맞게 조정
       x={0}
-      y={-50}
+      y={0}
       opacity={1}
       scale={1.0}
     />
-  )
+    );
+  } else {
+    view.add(
+      <Img
+        ref={imageRef}
+        src={slides[0].content.image}
+        width={"100%"}
+        x={0}
+        y={0}
+        opacity={1}
+        scale={1.0}
+      />
+    );
+  }
 
   function* playSlides() {
     // Loop through each slide
@@ -121,7 +136,7 @@ export function* displayImages({ imageContainer, images, duration }: DisplayImag
     
     // 이미지 표시 시간
     const slideDuration = duration / images.length;
-    yield* imageRef().opacity(1, slideDuration - 1);
+    yield* imageRef().opacity(1, slideDuration - 0.5);
     
     // 페이드아웃 애니메이션
     yield* imageRef().opacity(0, 0.5);

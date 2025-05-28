@@ -1,9 +1,22 @@
 {
-  "audioUrl": "src/audio/ElevenLabs_Text_to_Speech_audio.mp3",
+  "audioUrl": "public/anacell-audio.wav",
   "images": [
-    "/images/cartoon_1.png",
-    "/images/cartoon_2.png",
-    "/images/cartoon_3.png"
+    "/images/%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%90%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A9.png",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC01.jpg",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC02.jpg",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC01.jpg",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC02.jpg",
+    "/images/%E1%84%89%E1%85%B5%E1%86%A8%E1%84%8B%E1%85%A3%E1%86%A8%E1%84%8E%E1%85%A5_%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%AA%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%91%E1%85%AE%E1%86%B7_%E1%84%87%E1%85%A9%E1%84%80%E1%85%A9.png",
+    "/images/%E1%84%8B%E1%85%A1%E1%84%82%E1%85%A1%E1%84%89%E1%85%A6%E1%86%AF%20%E1%84%8C%E1%85%A6%E1%84%91%E1%85%AE%E1%86%B7%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpg",
+    "/images/%E1%84%8B%E1%85%A1%E1%84%82%E1%85%A1%E1%84%89%E1%85%A6%E1%86%AF_%E1%84%85%E1%85%A9%E1%84%80%E1%85%A9.png",
+    "/images/%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%90%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A9.png",
+    "/images/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8E%E1%85%A6%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%89%E1%85%B5%E1%84%92%E1%85%A5%E1%86%B7%20%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8%E1%84%89%E1%85%A5.jpg",
+    "/images/%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%AD%E1%84%80%E1%85%B5%E1%84%89%E1%85%AE%E1%86%AF_CMX%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png",
+    "/images/%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%AD%E1%84%80%E1%85%B5%E1%84%89%E1%85%AE%E1%86%AF_DEE%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png",
+    "/images/%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%AD%E1%84%80%E1%85%B5%E1%84%89%E1%85%AE%E1%86%AF_ME-True%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png",
+    "/images/%E1%84%90%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A9_%E1%84%80%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%AB_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC.png",
+    "/images/%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%E1%84%8C%E1%85%B3%E1%86%BC.jpg",
+    "/images/cartoon_%EC%A0%84%EC%B2%B4.png"
   ],
   "words": [
     {
@@ -35,11 +48,11 @@
       "punctuated_word": "머리카락이"
     },
     {
-      "word": "통장장호처럼",
+      "word": "통장잔고처럼",
       "start": 2.24,
       "end": 2.74,
       "confidence": 0.7144165,
-      "punctuated_word": "통장장호처럼"
+      "punctuated_word": "통장잔고처럼"
     },
     {
       "word": "줄어들까",
@@ -63,11 +76,11 @@
       "punctuated_word": "모르게"
     },
     {
-      "word": "머리수티",
+      "word": "머리숱이",
       "start": 5.12,
       "end": 5.62,
       "confidence": 0.90283203,
-      "punctuated_word": "머리수티"
+      "punctuated_word": "머리숱이"
     },
     {
       "word": "지갑처럼",
@@ -91,11 +104,11 @@
       "punctuated_word": "날,"
     },
     {
-      "word": "아나세를",
+      "word": "아나셀을",
       "start": 7.52,
       "end": 8.02,
       "confidence": 0.4942627,
-      "punctuated_word": "아나세를"
+      "punctuated_word": "아나셀을"
     },
     {
       "word": "만나고",
@@ -217,32 +230,18 @@
       "punctuated_word": "아나셀은"
     },
     {
-      "word": "jk혁재와",
+      "word": "JAK억제와",
       "start": 19.645,
       "end": 20.145,
       "confidence": 0.6902832,
-      "punctuated_word": "JK혁재와"
+      "punctuated_word": "JAK억제와"
     },
     {
-      "word": "wnta",
+      "word": "Wnt조절로",
       "start": 20.525,
-      "end": 21.025,
-      "confidence": 0.83447266,
-      "punctuated_word": "WNTA"
-    },
-    {
-      "word": "오",
-      "start": 21.405,
-      "end": 21.725,
-      "confidence": 0.8833008,
-      "punctuated_word": "오"
-    },
-    {
-      "word": "절로",
-      "start": 21.725,
       "end": 22.125,
-      "confidence": 0.9550781,
-      "punctuated_word": "절로"
+      "confidence": 0.83447266,
+      "punctuated_word": "Wnt조절로"
     },
     {
       "word": "잠자는",
@@ -266,11 +265,11 @@
       "punctuated_word": "깨워준다."
     },
     {
-      "word": "식약청",
+      "word": "식약처",
       "start": 24.525002,
       "end": 25.025002,
       "confidence": 0.9210205,
-      "punctuated_word": "식약청"
+      "punctuated_word": "식약처"
     },
     {
       "word": "인증받은",

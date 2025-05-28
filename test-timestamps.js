@@ -25,7 +25,7 @@ async function getWordTimestamps(audioFilePath) {
 async function main() {
   try {
     // 분석할 오디오 파일 경로 지정
-    const audioFilePath = './audio/ElevenLabs_Text_to_Speech_audio.mp3';
+    const audioFilePath = 'public/anacell-audio.wav';
     console.log(`Starting analysis of audio file: ${audioFilePath}`);
     
     // 단어 타임스탬프 추출

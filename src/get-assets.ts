@@ -4,6 +4,7 @@ require('dotenv').config();
 import { getVideoScript, generateAudio, getWordTimestamps } from './utils';
 //import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs';
+import * as path from 'path';
 
 
 async function createAssets(topic: string, voiceName: string){
@@ -28,17 +29,39 @@ async function createAssets(topic: string, voiceName: string){
     const audioPath = `./public/${jobId}-audio.wav`;
     const words = await getWordTimestamps(audioPath);
 
-    console.log("Using existing images...")
+    console.log("Loading all images from public/images...")
     console.log("script", script);
     console.log("words", words);
 
-
-    // 기존 이미지 파일 경로 배열
-    const imageFiles = [
-      'src/images/cartoon_1.png',
-      'src/images/cartoon_2.png',
-      'src/images/cartoon_3.png'
-    ];
+    // public/images 폴더의 모든 이미지 파일을 동적으로 가져오기
+    const imagesDir = './public/images';
+    const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'];
+    
+    let imageFiles: string[] = [];
+    try {
+        const files = await fs.promises.readdir(imagesDir);
+        imageFiles = files
+            .filter(file => imageExtensions.includes(path.extname(file).toLowerCase()))
+            .filter(file => {
+                // 특허 관련 파일들 제외
+                const lowerFile = file.toLowerCase();
+                return !lowerFile.includes('특허') &&
+                       !lowerFile.includes('patent') &&
+                       !lowerFile.includes('상표등록');
+            })
+            .map(file => `/images/${encodeURIComponent(file)}`)
+            .sort(); // 파일명 순으로 정렬
+        
+        console.log(`Found ${imageFiles.length} images (excluding patents):`, imageFiles);
+    } catch (error) {
+        console.error('Error reading images directory:', error);
+        // 폴백으로 기존 이미지 사용
+        imageFiles = [
+            '/images/cartoon_1.png',
+            '/images/cartoon_2.png',
+            '/images/cartoon_3.png'
+        ];
+    }
     const metadata = {
       audioUrl: `${jobId}-audio.wav`,
       images: imageFiles,
