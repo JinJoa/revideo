@@ -64,7 +64,7 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
             // 기본 상태로 리셋 (애니메이션 함수에서 필요한 초기 상태를 설정할 것임)
             imageRef().scale(1.0)
             imageRef().x(0)
-            imageRef().y(-50)
+            imageRef().y(0)
             imageRef().opacity(1)
             imageRef().filters.brightness(1)
           }, transitionDuration)
@@ -76,7 +76,7 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
           imageRef().src(slides[i].content.image)
           imageRef().scale(1.0)
           imageRef().x(0)
-          imageRef().y(-50)
+          imageRef().y(0)
           imageRef().opacity(1)
           imageRef().filters.brightness(1)
           

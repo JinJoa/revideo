@@ -18,8 +18,8 @@ export const defaultTextSettings = {
   textAlign: "center" as "center",
   textBoxWidthInPercent: 90,
   fadeInAnimation: true,
-  currentWordColor: "black",
-  currentWordBackgroundColor: "white",
+  currentWordColor: "red",
+  currentWordBackgroundColor: "",
   //shadowColor: "black",
   //shadowBlur: 30
 };
@@ -186,18 +186,32 @@ function* highlightCurrentWord(container: Reference<Layout>, currentBatch: Word[
     const word = currentBatch[i];
     const originalColor = wordRefs[i]().fill();
     nextWordStart = currentBatch[i + 1]?.start - word.end || 0;
-    wordRefs[i]().text(wordRefs[i]().text());
+    
+    // 텍스트 색상 변경
     wordRefs[i]().fill(wordColor);
-
+    
     const backgroundRef = createRef<Rect>();
     if (backgroundColor) {
-      container().add(<Rect fill={backgroundColor} zIndex={1} size={wordRefs[i]().size} position={wordRefs[i]().position} radius={10} padding={10} ref={backgroundRef} />);
+      // 배경을 텍스트와 같은 위치에 정확히 배치
+      const textPosition = wordRefs[i]().absolutePosition();
+      const textSize = wordRefs[i]().size();
+      
+      container().add(
+        <Rect
+          fill={backgroundColor}
+          zIndex={1}
+          size={[textSize.x + 20, textSize.y + 10]}
+          position={textPosition}
+          radius={10}
+          ref={backgroundRef}
+        />
+      );
     }
 
     yield* waitFor(word.end - word.start);
-    wordRefs[i]().text(wordRefs[i]().text());
+    
+    // 원래 상태로 복원
     wordRefs[i]().fill(originalColor);
-
     if (backgroundColor) {
       backgroundRef().remove();
     }

@@ -76,6 +76,7 @@ const scene = makeScene2D('scene', function* (view) {
 
       {/* 메인 레이아웃 */}
       <Layout
+        layout
         size={["100%", "100%"]}
         direction={"column"}
         gap={0}
@@ -85,10 +86,10 @@ const scene = makeScene2D('scene', function* (view) {
       >
         {/* 헤더 영역 - 20% */}
         <Layout
+          layout
           ref={headerContainer}
           size={["100%", "20%"]}
           padding={0}
-          direction={"column"}
           justifyContent={"start"}
           alignItems={"center"}
         >
@@ -96,8 +97,20 @@ const scene = makeScene2D('scene', function* (view) {
 
         {/* 본문 영역 - 50% */}
         <Layout
+          layout
           ref={imageContainer}
           size={["100%", "50%"]}
+          padding={0}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+        </Layout>
+
+        {/* 푸터 영역 - 20% */}
+        <Layout
+          layout
+          ref={textContainer}
+          size={["100%", "20%"]}
           padding={0}
           direction={"column"}
           justifyContent={"center"}
@@ -105,14 +118,11 @@ const scene = makeScene2D('scene', function* (view) {
         >
         </Layout>
 
-        {/* 푸터 영역 - 30% */}
+        {/* 하단 여백 - 10% */}
         <Layout
-          ref={textContainer}
-          size={["100%", "30%"]}
+          layout
+          size={["100%", "10%"]}
           padding={0}
-          direction={"column"}
-          justifyContent={"end"}
-          alignItems={"center"}
         >
         </Layout>
       </Layout>
