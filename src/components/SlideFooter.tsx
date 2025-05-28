@@ -1,11 +1,28 @@
 import { Txt, Layout, Rect } from '@revideo/2d';
-import { createRef, waitFor, all, Reference, createSignal } from '@revideo/core';
+import { createRef, waitFor, all, Reference, createSignal, ThreadGenerator } from '@revideo/core';
 
 interface Word {
   punctuated_word: string;
   start: number;
   end: number;
 }
+
+// 기본 텍스트 설정
+export const defaultTextSettings = {
+  fontSize: 60,
+  numSimultaneousWords: 4,
+  textColor: "black",
+  fontWeight: 800,
+  fontFamily: "Mulish",
+  stream: false,
+  textAlign: "center" as "center",
+  textBoxWidthInPercent: 90,
+  fadeInAnimation: true,
+  currentWordColor: "black",
+  currentWordBackgroundColor: "white",
+  //shadowColor: "black",
+  //shadowBlur: 30
+};
 
 interface captionSettings {
   fontSize: number;
@@ -129,6 +146,36 @@ export function* displayWords(props: SlideFooterProps) {
     }
     waitBefore = nextClipStart !== null ? nextClipStart - currentBatch[currentBatch.length - 1].end : 0;
   }
+}
+
+// SlideFooter 생성 함수
+interface SlideFooterCreateProps {
+  textContainer: Reference<Layout>;
+  words: Word[];
+  settings?: captionSettings;
+}
+
+interface SlideFooterResult {
+  playFooter: () => ThreadGenerator;
+}
+
+export function createSlideFooter({
+  textContainer,
+  words,
+  settings = defaultTextSettings
+}: SlideFooterCreateProps): SlideFooterResult {
+  
+  function* playFooter() {
+    yield* displayWords({
+      textContainer,
+      words,
+      settings
+    });
+  }
+
+  return {
+    playFooter
+  };
 }
 
 function* highlightCurrentWord(container: Reference<Layout>, currentBatch: Word[], wordRefs: Reference<Txt>[], wordColor: string, backgroundColor: string) {

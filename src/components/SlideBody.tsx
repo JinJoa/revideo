@@ -1,5 +1,5 @@
 import { Img, Rect, View2D, Txt, Audio, Layout } from '@revideo/2d'
-import { createRef, waitFor, all, Reference } from '@revideo/core'
+import { createRef, waitFor, all, Reference, ThreadGenerator } from '@revideo/core'
 
 import { 
   executeImageAnimations,
@@ -14,7 +14,7 @@ interface SlideBodyProps {
 
 interface SlideBodyResult {
   imageRef: Reference<Img>;
-  playSlides: () => Generator;
+  playSlides: () => ThreadGenerator;
 }
 
 export function createSlideBody({ slides, view }: SlideBodyProps): SlideBodyResult {
@@ -71,17 +71,7 @@ export function createSlideBody({ slides, view }: SlideBodyProps): SlideBodyResu
             yield* imageRef().opacity(1, 0.3)
           }
         }
-      } 
-
-      // Add audio for current slide
-      const audioRef = createRef<Audio>()
-      view.add(
-        <Audio
-          ref={audioRef}
-          src={slides[i].content.audio}
-          play={true}
-        />
-      )
+      }
 
       // Get slide duration
       const slideDuration = slides[i].timing.duration || 5.0
@@ -94,5 +84,49 @@ export function createSlideBody({ slides, view }: SlideBodyProps): SlideBodyResu
   return {
     imageRef,
     playSlides
+  }
+}
+
+// 간단한 이미지 슬라이드쇼를 위한 인터페이스
+interface DisplayImagesProps {
+  imageContainer: Reference<Layout>;
+  images: string[];
+  duration: number;
+}
+
+/**
+ * 간단한 이미지 슬라이드쇼 표시 함수
+ */
+export function* displayImages({ imageContainer, images, duration }: DisplayImagesProps) {
+  // 각 이미지에 대해 순차적으로 표시
+  for (let i = 0; i < images.length; i++) {
+    const imageRef = createRef<Img>();
+    
+    console.log(`이미지 추가 시도: ${images[i]}`);
+    
+    // 이미지를 이미지 컨테이너에 추가
+    imageContainer().add(
+      <Img
+        ref={imageRef}
+        src={images[i]}
+        width={"100%"} // 컨테이너 가로폭의 100%로 설정
+        x={0}
+        y={0}
+        opacity={0}
+      />
+    );
+    
+    // 간단한 페이드인 애니메이션
+    yield* imageRef().opacity(1, 0.5);
+    
+    // 이미지 표시 시간
+    const slideDuration = duration / images.length;
+    yield* imageRef().opacity(1, slideDuration - 1);
+    
+    // 페이드아웃 애니메이션
+    yield* imageRef().opacity(0, 0.5);
+    
+    // 이미지 제거
+    imageRef().remove();
   }
 }

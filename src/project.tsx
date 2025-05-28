@@ -2,11 +2,11 @@ import { Audio, makeScene2D, Layout, Rect, Img, Txt } from '@revideo/2d';
 import { all, createRef, useScene, makeProject, Reference } from '@revideo/core';
 import metadata from './metadata.json';
 import './global.css';
-import { displayWords } from './components/SlideFooter';
+import { createSlideFooter, defaultTextSettings } from './components/SlideFooter';
 import { createSlideHeader } from './components/SlideHeader';
 import { createSlideBody } from './components/SlideBody';
 import { ImageAnimationConfig, executeImageAnimations } from './animations/imageAnimations';
-import { StructuredSlide } from './types/slide';
+
 
 // 랜덤 애니메이션 설정 생성 함수
 function getRandomImageAnimation(): ImageAnimationConfig {
@@ -30,85 +30,39 @@ function getRandomImageAnimation(): ImageAnimationConfig {
   };
 }
 
-// 텍스트 설정 - 글씨 색상을 검정색으로 변경
-const textSettings = {
-  fontSize: 60,
-  numSimultaneousWords: 4,
-  textColor: "black", // 글씨 색상을 검정색으로 변경
-  fontWeight: 800,
-  fontFamily: "Mulish",
-  stream: false,
-  textAlign: "center" as "center",
-  textBoxWidthInPercent: 90,
-  fadeInAnimation: true,
-  currentWordColor: "black", // 하이라이트 글씨는 검정색 유지
-  currentWordBackgroundColor: "white", // 하이라이트 배경은 흰색 유지
-  //shadowColor: "black",
-  //shadowBlur: 30
-};
 
-// 이미지 슬라이드쇼 표시 함수 인터페이스
-interface DisplayImagesProps {
-  imageContainer: Reference<Layout>;
-  images: string[];
-  duration: number;
-}
-
-/**
- * 이미지 슬라이드쇼 표시 함수 - 레이아웃 컨테이너에 추가하도록 수정
- */
-function* displayImages({ imageContainer, images, duration }: DisplayImagesProps) {
-  // 각 이미지에 대해 순차적으로 표시
-  for (let i = 0; i < images.length; i++) {
-    const imageRef = createRef<Img>();
-    
-    console.log(`이미지 추가 시도: ${images[i]}`);
-    
-    // 이미지를 이미지 컨테이너에 추가
-    imageContainer().add(
-      <Img
-        ref={imageRef}
-        src={images[i]}
-        width={"100%"} // 컨테이너 가로폭의 100%로 설정
-        x={0}
-        y={0}
-        opacity={0}
-      />
-    );
-    
-    // 간단한 페이드인 애니메이션
-    yield* imageRef().opacity(1, 0.5);
-    
-    // 이미지 표시 시간
-    const slideDuration = duration / images.length;
-    yield* imageRef().opacity(1, slideDuration - 1);
-    
-    // 페이드아웃 애니메이션
-    yield* imageRef().opacity(0, 0.5);
-    
-    // 이미지 제거
-    imageRef().remove();
-  }
-}
 
 /**
  * 메인 씬
  */
 const scene = makeScene2D('scene', function* (view) {
-  // 이미지 파일 경로 배열 - 절대 경로로 수정
-  const images = [
-    '/images/cartoon_1.png',
-    '/images/cartoon_2.png',
-    '/images/cartoon_3.png',
-    '/images/cartoon_전체.png'
-  ];
-  
   // 메타데이터에서 변수 가져오기
   const words = metadata.words;
   const audioUrl = '/audio/ElevenLabs_Text_to_Speech_audio.mp3';
 
   // 마지막 단어의 종료 시간 + 0.5초를 전체 지속 시간으로 설정
   const duration = words[words.length-1].end + 0.5;
+
+  // 이미지 배열을 StructuredSlide 배열로 변환
+  const images = [
+    '/images/cartoon_1.png',
+    '/images/cartoon_2.png',
+    '/images/cartoon_3.png',
+    '/images/cartoon_전체.png'
+  ];
+
+  const slides = images.map((image, index) => ({
+    content: {
+      image,
+      audio: audioUrl // 모든 슬라이드에서 같은 오디오 사용
+    },
+    timing: {
+      duration: duration / images.length // 각 이미지의 표시 시간
+    },
+    animations: {
+      image: getRandomImageAnimation()
+    }
+  }));
 
   // 컨테이너 참조 생성
   const textContainer = createRef<Layout>();
@@ -140,20 +94,9 @@ const scene = makeScene2D('scene', function* (view) {
           size={["100%", "20%"]}
           padding={0}
           direction={"column"}
-          justifyContent={"center"}
+          justifyContent={"start"}
           alignItems={"center"}
         >
-          <Txt
-            text="아나셀 탈모 솔루션"
-            fill="#32D74B"
-            fontFamily="Arial"
-            fontSize={110}
-            fontWeight={900}
-            textAlign="center"
-            stroke="#1E293B"
-            strokeFirst={true}
-            lineWidth={3}
-          />
         </Layout>
 
         {/* 본문 영역 - 50% */}
@@ -173,7 +116,7 @@ const scene = makeScene2D('scene', function* (view) {
           size={["100%", "30%"]}
           padding={0}
           direction={"column"}
-          justifyContent={"center"}
+          justifyContent={"end"}
           alignItems={"center"}
         >
         </Layout>
@@ -187,18 +130,30 @@ const scene = makeScene2D('scene', function* (view) {
     </>
   );
 
+  // 헤더 생성 및 표시
+  const header = createSlideHeader({
+    header: "아나셀 탈모 솔루션",
+    view
+  });
+  yield* header.showHeader();
+
+  // 슬라이드 바디 생성
+  const slideBody = createSlideBody({
+    slides,
+    view
+  });
+
+  // 슬라이드 푸터 생성
+  const slideFooter = createSlideFooter({
+    textContainer,
+    words,
+    settings: defaultTextSettings
+  });
+
   // 이미지와 텍스트 동시에 표시
   yield* all(
-    displayImages({
-      imageContainer,
-      images,
-      duration
-    }),
-    displayWords({
-      textContainer,
-      words,
-      settings: textSettings
-    })
+    slideBody.playSlides(),
+    slideFooter.playFooter()
   );
 
   
