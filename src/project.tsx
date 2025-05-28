@@ -1,246 +1,218 @@
-import {Audio, Img, makeScene2D, Txt, Rect, Layout} from '@revideo/2d';
-import {all, createRef, waitFor, useScene, Reference, createSignal, makeProject} from '@revideo/core';
+import { Audio, makeScene2D, Layout, Rect, Img, Txt } from '@revideo/2d';
+import { all, createRef, useScene, makeProject, Reference } from '@revideo/core';
 import metadata from './metadata.json';
 import './global.css';
+import { displayWords } from './components/SlideFooter';
+import { createSlideHeader } from './components/SlideHeader';
+import { createSlideBody } from './components/SlideBody';
+import { ImageAnimationConfig, executeImageAnimations } from './animations/imageAnimations';
+import { StructuredSlide } from './types/slide';
 
-interface Word {
-  punctuated_word: string;
-  start: number;
-  end: number;
+// 랜덤 애니메이션 설정 생성 함수
+function getRandomImageAnimation(): ImageAnimationConfig {
+  const zoomTypes = ['zoomIn', 'zoomOut', 'zoomInOut', 'static'];
+  const panTypes = ['panLeft', 'panRight', 'panUp', 'panDown', 'none'];
+  const transitionTypes = ['flash', 'blink', 'shutterTransition', 'fade', 'none'];
+  
+  return {
+    zoom: {
+      type: zoomTypes[Math.floor(Math.random() * zoomTypes.length)] as any,
+      intensity: 0.15
+    },
+    pan: {
+      type: panTypes[Math.floor(Math.random() * panTypes.length)] as any,
+      distance: 100
+    },
+    transition: {
+      type: transitionTypes[Math.floor(Math.random() * transitionTypes.length)] as any,
+      duration: 0.5
+    }
+  };
 }
 
-interface captionSettings {
-  fontSize: number;
-  textColor: string;
-  fontWeight: number;
-  fontFamily: string;
-  numSimultaneousWords: number;
-  stream: boolean;
-  textAlign: "center" | "left";
-  textBoxWidthInPercent: number;
-  borderColor?: string;
-  borderWidth?: number;
-  currentWordColor?: string;
-  currentWordBackgroundColor?: string;
-  shadowColor?: string;
-  shadowBlur?: number;
-  fadeInAnimation?: boolean;
-}
-
-const textSettings: captionSettings = {
-  fontSize: 80,
-  numSimultaneousWords: 4, // how many words are shown at most simultaneously
-  textColor: "white",
+// 텍스트 설정 - 글씨 색상을 검정색으로 변경
+const textSettings = {
+  fontSize: 60,
+  numSimultaneousWords: 4,
+  textColor: "black", // 글씨 색상을 검정색으로 변경
   fontWeight: 800,
   fontFamily: "Mulish",
-  stream: false, // if true, words appear one by one
-  textAlign: "center",
+  stream: false,
+  textAlign: "center" as "center",
   textBoxWidthInPercent: 90,
   fadeInAnimation: true,
-  currentWordColor: "black",
-  currentWordBackgroundColor: "white",
-  shadowColor: "black",
-  shadowBlur: 30
+  currentWordColor: "black", // 하이라이트 글씨는 검정색 유지
+  currentWordBackgroundColor: "white", // 하이라이트 배경은 흰색 유지
+  //shadowColor: "black",
+  //shadowBlur: 30
+};
+
+// 이미지 슬라이드쇼 표시 함수 인터페이스
+interface DisplayImagesProps {
+  imageContainer: Reference<Layout>;
+  images: string[];
+  duration: number;
 }
 
 /**
- * The Revideo scene
+ * 이미지 슬라이드쇼 표시 함수 - 레이아웃 컨테이너에 추가하도록 수정
+ */
+function* displayImages({ imageContainer, images, duration }: DisplayImagesProps) {
+  // 각 이미지에 대해 순차적으로 표시
+  for (let i = 0; i < images.length; i++) {
+    const imageRef = createRef<Img>();
+    
+    console.log(`이미지 추가 시도: ${images[i]}`);
+    
+    // 이미지를 이미지 컨테이너에 추가
+    imageContainer().add(
+      <Img
+        ref={imageRef}
+        src={images[i]}
+        width={"100%"} // 컨테이너 가로폭의 100%로 설정
+        x={0}
+        y={0}
+        opacity={0}
+      />
+    );
+    
+    // 간단한 페이드인 애니메이션
+    yield* imageRef().opacity(1, 0.5);
+    
+    // 이미지 표시 시간
+    const slideDuration = duration / images.length;
+    yield* imageRef().opacity(1, slideDuration - 1);
+    
+    // 페이드아웃 애니메이션
+    yield* imageRef().opacity(0, 0.5);
+    
+    // 이미지 제거
+    imageRef().remove();
+  }
+}
+
+/**
+ * 메인 씬
  */
 const scene = makeScene2D('scene', function* (view) {
-  const images = useScene().variables.get('images', [])();
-  const audioUrl = useScene().variables.get('audioUrl', 'none')();
-  const words = useScene().variables.get('words', [])();
+  // 이미지 파일 경로 배열 - 절대 경로로 수정
+  const images = [
+    '/images/cartoon_1.png',
+    '/images/cartoon_2.png',
+    '/images/cartoon_3.png',
+    '/images/cartoon_전체.png'
+  ];
+  
+  // 메타데이터에서 변수 가져오기
+  const words = metadata.words;
+  const audioUrl = '/audio/ElevenLabs_Text_to_Speech_audio.mp3';
 
+  // 마지막 단어의 종료 시간 + 0.5초를 전체 지속 시간으로 설정
   const duration = words[words.length-1].end + 0.5;
 
-  const imageContainer = createRef<Layout>();
+  // 컨테이너 참조 생성
   const textContainer = createRef<Layout>();
+  const imageContainer = createRef<Layout>();
+  const headerContainer = createRef<Layout>();
 
+  // 배경 및 레이아웃 추가
   yield view.add(
     <>
-      <Layout size={"100%"} justifyContent={"center"} alignItems={"center"}>
-        <Rect size={["56.25%", "100%"]} fill="black" radius={0} direction={"column"} justifyContent={"center"} alignItems={"center"}>
-          <Layout size={["100%", "12%"]} justifyContent={"center"} alignItems={"center"}>
-            <Txt fontSize={70} fontWeight={900} fill="white" fontFamily="Mulish" textAlign="center" shadowBlur={20} shadowColor="black">아나셀 화장품</Txt>
-          </Layout>
-          <Layout size={["100%", "60%"]} justifyContent={"center"} alignItems={"center"} ref={imageContainer} />
-          <Layout size={["100%", "18%"]} justifyContent={"center"} alignItems={"center"}>
-            <Rect size={["100%", "100%"]} fill="black" justifyContent={"center"} alignItems={"center"}>
-              <Layout size={["100%", "100%"]} justifyContent={"center"} alignItems={"center"} ref={textContainer} />
-            </Rect>
-          </Layout>
-        </Rect>
-      </Layout>
-      <Audio
-        src={"public/audio/ElevenLabs_Text_to_Speech_audio.mp3"}
-        play={true}
+      {/* 배경 - 회색 배경 */}
+      <Rect 
+        width={"100%"}
+        height={"100%"}
+        fill="#FFFFFF"
       />
+
+      {/* 메인 레이아웃 */}
+      <Layout
+        size={["100%", "100%"]}
+        direction={"column"}
+        gap={0}
+        padding={0}
+        justifyContent={"start"}
+        alignItems={"stretch"}
+      >
+        {/* 헤더 영역 - 20% */}
+        <Layout
+          ref={headerContainer}
+          size={["100%", "20%"]}
+          padding={0}
+          direction={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Txt
+            text="아나셀 탈모 솔루션"
+            fill="#32D74B"
+            fontFamily="Arial"
+            fontSize={110}
+            fontWeight={900}
+            textAlign="center"
+            stroke="#1E293B"
+            strokeFirst={true}
+            lineWidth={3}
+          />
+        </Layout>
+
+        {/* 본문 영역 - 50% */}
+        <Layout
+          ref={imageContainer}
+          size={["100%", "50%"]}
+          padding={0}
+          direction={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+        </Layout>
+
+        {/* 푸터 영역 - 30% */}
+        <Layout
+          ref={textContainer}
+          size={["100%", "30%"]}
+          padding={0}
+          direction={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+        </Layout>
+      </Layout>
+      
+      {/* 오디오 */}
       <Audio
-        src={"https://revideo-example-assets.s3.amazonaws.com/chill-beat-2.mp3"}
+        src={audioUrl}
         play={true}
-        volume={0.1}
       />
     </>
   );
 
+  // 이미지와 텍스트 동시에 표시
   yield* all(
-    displayImages(imageContainer, images, duration),
-    displayWords(
+    displayImages({
+      imageContainer,
+      images,
+      duration
+    }),
+    displayWords({
       textContainer,
       words,
-      textSettings
-    )
-  )
+      settings: textSettings
+    })
+  );
+
+  
 });
 
-function* displayImages(container: Reference<Layout>, images: string[], totalDuration: number){
-  for(const img of images){
-    const ref = createRef<Img>();
-    container().add(<Img 
-      src={img}
-      size={["100%", "100%"]}
-      ref={ref}
-      zIndex={0}
-    /> 
-    )
-    yield* waitFor(totalDuration/images.length);
-  }
-}
-
-function* displayWords(container: Reference<Layout>, words: Word[], settings: captionSettings){
-  let waitBefore = words[0].start;
-
-  for (let i = 0; i < words.length; i += settings.numSimultaneousWords) {
-    const currentBatch = words.slice(i, i + settings.numSimultaneousWords);
-    const nextClipStart =
-      i < words.length - 1 ? words[i + settings.numSimultaneousWords]?.start || null : null;
-    const isLastClip = i + settings.numSimultaneousWords >= words.length;
-    const waitAfter = isLastClip ? 1 : 0;
-    const textRef = createRef<Txt>();
-    yield* waitFor(waitBefore);
-
-    if(settings.stream){
-      let nextWordStart = 0;
-      yield container().add(<Txt width={`${settings.textBoxWidthInPercent}%`} textWrap={true} zIndex={2} textAlign={settings.textAlign} ref={textRef}/>);
-
-      for(let j = 0; j < currentBatch.length; j++){
-        const word = currentBatch[j];
-        yield* waitFor(nextWordStart);
-        const optionalSpace = j === currentBatch.length-1? "" : " ";
-        const backgroundRef = createRef<Rect>();
-        const wordRef = createRef<Txt>();
-        const opacitySignal = createSignal(settings.fadeInAnimation ? 0.5 : 1);
-        textRef().add(
-          <Txt
-            fontSize={settings.fontSize}
-            fontWeight={settings.fontWeight}
-            fontFamily={settings.fontFamily}
-            textWrap={true}
-            textAlign={settings.textAlign}
-            fill={settings.currentWordColor}
-            ref={wordRef}
-            lineWidth={settings.borderWidth}
-            shadowBlur={settings.shadowBlur}
-            shadowColor={settings.shadowColor}
-            zIndex={2}
-            stroke={settings.borderColor}
-            opacity={opacitySignal}
-          >
-            {word.punctuated_word}
-          </Txt>
-        );
-        textRef().add(<Txt fontSize={settings.fontSize}>{optionalSpace}</Txt>);
-        container().add(<Rect fill={settings.currentWordBackgroundColor} zIndex={1} size={wordRef().size} position={wordRef().position} radius={10} padding={10} ref={backgroundRef} />);
-        yield* all(waitFor(word.end-word.start), opacitySignal(1, Math.min((word.end-word.start)*0.5, 0.1)));
-        wordRef().fill(settings.textColor);
-        backgroundRef().remove();
-        nextWordStart = currentBatch[j+1]?.start - word.end || 0;
-      }
-      textRef().remove();
-
-    } else {
-      yield container().add(<Txt width={`${settings.textBoxWidthInPercent}%`} textAlign={settings.textAlign} ref={textRef} textWrap={true} zIndex={2}/>);
-
-      const wordRefs = [];
-      const opacitySignal = createSignal(settings.fadeInAnimation ? 0.5 : 1);
-      for(let j = 0; j < currentBatch.length; j++){
-        const word = currentBatch[j];
-        const optionalSpace = j === currentBatch.length-1? "" : " ";
-        const wordRef = createRef<Txt>();
-        textRef().add(
-          <Txt
-            fontSize={settings.fontSize}
-            fontWeight={settings.fontWeight}
-            ref={wordRef}
-            fontFamily={settings.fontFamily}
-            textWrap={true}
-            textAlign={settings.textAlign}
-            fill={settings.textColor}
-            zIndex={2}
-            stroke={settings.borderColor}
-            lineWidth={settings.borderWidth}
-            shadowBlur={settings.shadowBlur}
-            shadowColor={settings.shadowColor}
-            opacity={opacitySignal}
-          >
-            {word.punctuated_word}
-          </Txt>
-        );
-        textRef().add(<Txt fontSize={settings.fontSize}>{optionalSpace}</Txt>);
-
-        // we have to yield once to await the first word being aligned correctly
-        if(j===0 && i === 0){
-          yield;
-        }
-        wordRefs.push(wordRef);
-      }
-
-      yield* all(
-        opacitySignal(1, Math.min(0.1, (currentBatch[0].end-currentBatch[0].start)*0.5)),
-        highlightCurrentWord(container, currentBatch, wordRefs, settings.currentWordColor, settings.currentWordBackgroundColor),
-        waitFor(currentBatch[currentBatch.length-1].end - currentBatch[0].start + waitAfter), 
-      );
-      textRef().remove();
-    }
-    waitBefore = nextClipStart !== null ? nextClipStart - currentBatch[currentBatch.length-1].end : 0;
-  }
-}
-
-function* highlightCurrentWord(container: Reference<Layout>, currentBatch: Word[], wordRefs: Reference<Txt>[], wordColor: string, backgroundColor: string){
-  let nextWordStart = 0;
-
-  for(let i = 0; i < currentBatch.length; i++){
-    yield* waitFor(nextWordStart);
-    const word = currentBatch[i];
-    const originalColor = wordRefs[i]().fill();
-    nextWordStart = currentBatch[i+1]?.start - word.end || 0;
-    wordRefs[i]().text(wordRefs[i]().text());
-    wordRefs[i]().fill(wordColor);
-
-    const backgroundRef = createRef<Rect>();
-    if(backgroundColor){
-      container().add(<Rect fill={backgroundColor} zIndex={1} size={wordRefs[i]().size} position={wordRefs[i]().position} radius={10} padding={10} ref={backgroundRef} />);
-    }
-
-    yield* waitFor(word.end-word.start);
-    wordRefs[i]().text(wordRefs[i]().text());
-    wordRefs[i]().fill(originalColor);
-
-    if(backgroundColor){
-      backgroundRef().remove();
-    }
-  }
-}
-
 /**
- * The final revideo project
+ * 최종 프로젝트 설정
  */
 export default makeProject({
   scenes: [scene],
   variables: metadata,
   settings: {
     shared: {
-      size: {x: 1920, y: 1080},
+      size: {x: 1080, y: 1920}, // 9:16 비율
     },
   },
 });

@@ -1,0 +1,127 @@
+import { Audio, makeScene2D, Layout, Rect } from '@revideo/2d';
+import { all, createRef, useScene, makeProject } from '@revideo/core';
+import metadata from './metadata.json';
+import './global.css';
+import { displayImages } from './components/SlideBody';
+import { displayWords } from './components/SlideFooter';
+import { createSlideHeader } from './components/SlideHeader';
+
+interface Word {
+  punctuated_word: string;
+  start: number;
+  end: number;
+}
+
+interface captionSettings {
+  fontSize: number;
+  textColor: string;
+  fontWeight: number;
+  fontFamily: string;
+  numSimultaneousWords: number;
+  stream: boolean;
+  textAlign: "center" | "left";
+  textBoxWidthInPercent: number;
+  borderColor?: string;
+  borderWidth?: number;
+  currentWordColor?: string;
+  currentWordBackgroundColor?: string;
+  shadowColor?: string;
+  shadowBlur?: number;
+  fadeInAnimation?: boolean;
+}
+
+const textSettings: captionSettings = {
+  fontSize: 80,
+  numSimultaneousWords: 4, // how many words are shown at most simultaneously
+  textColor: "white",
+  fontWeight: 800,
+  fontFamily: "Mulish",
+  stream: false, // if true, words appear one by one
+  textAlign: "center",
+  textBoxWidthInPercent: 90,
+  fadeInAnimation: true,
+  currentWordColor: "black",
+  currentWordBackgroundColor: "white",
+  shadowColor: "black",
+  shadowBlur: 30
+}
+
+/**
+ * The Revideo scene
+ */
+const scene = makeScene2D('scene', function* (view) {
+  const images = useScene().variables.get('images', [])();
+  const audioUrl = useScene().variables.get('audioUrl', 'none')();
+  const words = useScene().variables.get('words', [])();
+
+  const duration = words[words.length-1].end + 0.5;
+
+  const imageContainer = createRef<Layout>();
+  const textContainer = createRef<Layout>();
+
+  // 헤더 생성
+  const header = createSlideHeader({
+    header: "아나셀 화장품",
+    view
+  });
+
+  yield view.add(
+    <>
+      <Layout size={"100%"} justifyContent={"center"} alignItems={"center"}>
+        <Rect size={["56.25%", "100%"]} fill="black" radius={0} direction={"column"} justifyContent={"center"} alignItems={"center"}>
+          {/* 헤더 영역 - SlideHeader 컴포넌트 사용 */}
+          <Layout size={["100%", "12%"]} justifyContent={"center"} alignItems={"center"} />
+          
+          {/* 본문 영역 - SlideBody 컴포넌트 사용 */}
+          <Layout size={["100%", "60%"]} justifyContent={"center"} alignItems={"center"} ref={imageContainer} />
+          
+          {/* 푸터 영역 - SlideFooter 컴포넌트 사용 */}
+          <Layout size={["100%", "18%"]} justifyContent={"center"} alignItems={"center"}>
+            <Rect size={["100%", "100%"]} fill="black" justifyContent={"center"} alignItems={"center"}>
+              <Layout size={["100%", "100%"]} justifyContent={"center"} alignItems={"center"} ref={textContainer} />
+            </Rect>
+          </Layout>
+        </Rect>
+      </Layout>
+      <Audio
+        src={"/audio/ElevenLabs_Text_to_Speech_audio.mp3"}
+        play={true}
+      />
+      <Audio
+        src={"https://revideo-example-assets.s3.amazonaws.com/chill-beat-2.mp3"}
+        play={true}
+        volume={0.1}
+      />
+    </>
+  );
+
+  // 헤더 표시
+  yield* header.showHeader();
+
+  // 이미지와 텍스트 동시에 표시
+  yield* all(
+    displayImages({
+      imageContainer,
+      images,
+      duration
+    }),
+    displayWords({
+      textContainer,
+      words,
+      settings: textSettings
+    })
+  );
+});
+
+/**
+ * The final revideo project
+ */
+export default makeProject({
+  scenes: [scene],
+  variables: metadata,
+  settings: {
+    shared: {
+      size: {x: 1920, y: 1080},
+    },
+  },
+});
