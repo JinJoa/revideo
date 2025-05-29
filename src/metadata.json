@@ -11,8 +11,7 @@
     "/images/technical_explanation_ME-True.png",
     "/images/usage_result_female.JPG",
     "/images/human_application_test_results.jpg",
-    "/images/korean_patent.jpg",
-    "/images/anacell_logo.png"
+    "/images/anacell_homepage.png"
   ],
   "words": [
     {
@@ -205,11 +204,18 @@
       "punctuated_word": "외계인"
     },
     {
-      "word": "침공당하는",
+      "word": "침공",
       "start": 17.245,
+      "end": 17.345,
+      "confidence": 0.76586914,
+      "punctuated_word": "침공"
+    },    
+    {
+      "word": "당하는",
+      "start": 17.345,
       "end": 17.745,
       "confidence": 0.76586914,
-      "punctuated_word": "침공당하는"
+      "punctuated_word": "당하는"
     },
     {
       "word": "느낌",
@@ -359,18 +365,11 @@
       "punctuated_word": "머리로"
     },
     {
-      "word": "진화",
+      "word": "진화중",
       "start": 32.56333,
-      "end": 33.06333,
-      "confidence": 0.99316406,
-      "punctuated_word": "진화"
-    },
-    {
-      "word": "중",
-      "start": 33.09667,
       "end": 33.59667,
-      "confidence": 0.7470703,
-      "punctuated_word": "중"
+      "confidence": 0.99316406,
+      "punctuated_word": "진화중"
     },
     {
       "word": "판교",

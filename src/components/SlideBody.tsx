@@ -27,7 +27,7 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
     <Img
       ref={imageRef}
       src={slides[0].content.image}
-      width={"100%"}  // 컨테이너에 맞게 조정
+      height={"100%"}  // 컨테이너에 맞게 조정
       x={0}
       y={0}
       opacity={1}
@@ -39,7 +39,7 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
       <Img
         ref={imageRef}
         src={slides[0].content.image}
-        width={"100%"}
+        height={"100%"}
         x={0}
         y={0}
         opacity={1}

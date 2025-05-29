@@ -59,9 +59,15 @@ const scene = makeScene2D('scene', function* (view) {
   // 메타데이터에서 변수 가져오기
   const words = metadata.words;
   const audioUrl = '/audio/ElevenLabs_Text_to_Speech_audio.mp3';
+  //const audioUrl = 'public/audio/anacell-audio.wav';
 
-  // 마지막 단어의 종료 시간 + 0.5초를 전체 지속 시간으로 설정
-  const duration = words[words.length-1].end + 0.5;
+  // 오디오 길이를 metadata.json의 마지막 단어 시간으로 설정
+  const audioDuration = words[words.length-1].end;
+  
+  // 전환 효과 시간을 고려한 전체 duration 계산
+  const transitionTime = 0.3; // 각 슬라이드 전환에 필요한 시간
+  const totalTransitionTime = transitionTime * (metadata.images.length - 1);
+  const duration = audioDuration - totalTransitionTime;
 
   // metadata.json에서 모든 이미지 가져오기
   const images = metadata.images;
@@ -69,10 +75,13 @@ const scene = makeScene2D('scene', function* (view) {
   const slides = images.map((image, index) => ({
     content: {
       image,
-      audio: audioUrl // 모든 슬라이드에서 같은 오디오 사용
+      audio: audioUrl
     },
     timing: {
-      duration: duration / images.length // 각 이미지의 표시 시간
+      // 마지막 슬라이드의 경우 오디오 길이에 맞춤
+      duration: index === images.length - 1 
+        ? duration - (duration / images.length) * (images.length - 1)
+        : duration / images.length
     },
     animations: {
       image: getAlternatingZoomAnimation(index)
@@ -87,11 +96,11 @@ const scene = makeScene2D('scene', function* (view) {
   // 배경 및 레이아웃 추가
   yield view.add(
     <>
-      {/* 배경 - 회색 배경 */}
+      {/* 배경 색상 */}
       <Rect 
         width={"100%"}
         height={"100%"}
-        fill="#FFFFFF"
+        fill="#000000"
       />
 
       {/* 메인 레이아웃 */}
@@ -104,22 +113,22 @@ const scene = makeScene2D('scene', function* (view) {
         justifyContent={"start"}
         alignItems={"stretch"}
       >
-        {/* 헤더 영역 - 20% */}
+        {/* 헤더 영역 - 25% */}
         <Layout
           layout
           ref={headerContainer}
-          size={["100%", "20%"]}
+          size={["100%", "25%"]}
           padding={0}
           justifyContent={"start"}
           alignItems={"center"}
         >
         </Layout>
 
-        {/* 본문 영역 - 50% */}
+        {/* 본문 영역 - 55% */}
         <Layout
           layout
           ref={imageContainer}
-          size={["100%", "50%"]}
+          size={["100%", "55%"]}
           padding={0}
           justifyContent={"center"}
           alignItems={"center"}

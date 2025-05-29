@@ -31,7 +31,7 @@ export function createSlideHeader({ header, view, effect, effectConfig }: SlideH
       fontWeight={900}
       opacity={0}
       x={0}
-      y={-700}
+      y={-780}
       textAlign="center"
       stroke="#1E293B"
       strokeFirst={true}

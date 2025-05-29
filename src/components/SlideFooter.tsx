@@ -10,15 +10,15 @@ interface Word {
 // 기본 텍스트 설정
 export const defaultTextSettings = {
   fontSize: 60,
-  numSimultaneousWords: 4,
-  textColor: "black",
+  numSimultaneousWords: 3,
+  textColor: "white",
   fontWeight: 800,
   fontFamily: "Mulish",
   stream: false,
   textAlign: "center" as "center",
   textBoxWidthInPercent: 90,
   fadeInAnimation: true,
-  currentWordColor: "red",
+  currentWordColor: "yellow",
   currentWordBackgroundColor: "",
   //shadowColor: "black",
   //shadowBlur: 30
