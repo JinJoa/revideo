@@ -3,29 +3,49 @@ import { all, createRef, useScene, makeProject, Reference } from '@revideo/core'
 import metadata from './metadata.json';
 import './global.css';
 import { createSlideFooter, defaultTextSettings } from './components/SlideFooter';
-import { createSlideHeader } from './components/SlideHeader';
+import { createSlideHeader, HeaderEffects } from './components/SlideHeader';
 import { createSlideBody } from './components/SlideBody';
 import { ImageAnimationConfig, executeImageAnimations } from './animations/imageAnimations';
 
 
-// 랜덤 애니메이션 설정 생성 함수
-function getRandomImageAnimation(): ImageAnimationConfig {
-  const zoomTypes = ['zoomIn', 'zoomOut', 'zoomInOut', 'static'];
-  const panTypes = ['panLeft', 'panRight', 'panUp', 'panDown', 'none'];
-  const transitionTypes = ['flash', 'blink', 'shutterTransition', 'fade', 'none'];
+// 랜덤 애니메이션 설정 생성 함수 (주석처리)
+// function getRandomImageAnimation(): ImageAnimationConfig {
+//   const zoomTypes = ['zoomIn', 'zoomOut', 'zoomInOut', 'static'];
+//   const panTypes = ['panLeft', 'panRight', 'panUp', 'panDown', 'none'];
+//   const transitionTypes = ['flash', 'blink', 'shutterTransition', 'fade', 'none'];
+//
+//   return {
+//     zoom: {
+//       type: zoomTypes[Math.floor(Math.random() * zoomTypes.length)] as any,
+//       intensity: 0.15
+//     },
+//     pan: {
+//       type: panTypes[Math.floor(Math.random() * panTypes.length)] as any,
+//       distance: 100
+//     },
+//     transition: {
+//       type: transitionTypes[Math.floor(Math.random() * transitionTypes.length)] as any,
+//       duration: 0.5
+//     }
+//   };
+// }
+
+// zoomIn과 zoomOut을 번갈아가며 사용하는 함수
+function getAlternatingZoomAnimation(index: number): ImageAnimationConfig {
+  const isEven = index % 2 === 0;
   
   return {
     zoom: {
-      type: zoomTypes[Math.floor(Math.random() * zoomTypes.length)] as any,
+      type: isEven ? 'zoomIn' : 'zoomOut',
       intensity: 0.15
     },
     pan: {
-      type: panTypes[Math.floor(Math.random() * panTypes.length)] as any,
-      distance: 100
+      type: 'none',
+      distance: 0
     },
     transition: {
-      type: transitionTypes[Math.floor(Math.random() * transitionTypes.length)] as any,
-      duration: 0.5
+      type: 'none',
+      duration: 0
     }
   };
 }
@@ -55,7 +75,7 @@ const scene = makeScene2D('scene', function* (view) {
       duration: duration / images.length // 각 이미지의 표시 시간
     },
     animations: {
-      image: getRandomImageAnimation()
+      image: getAlternatingZoomAnimation(index)
     }
   }));
 
@@ -135,12 +155,12 @@ const scene = makeScene2D('scene', function* (view) {
     </>
   );
 
-  // 헤더 생성 및 표시
+  // 헤더 생성 (무한 반복 타이핑 효과 적용)
   const header = createSlideHeader({
     header: "아나셀 탈모 솔루션",
-    view
+    view,
+    ...HeaderEffects.createInfiniteTypewriter(duration) // 전체 영상 시간 동안 무한 반복
   });
-  yield* header.showHeader();
 
   // 슬라이드 바디 생성
   const slideBody = createSlideBody({
@@ -156,8 +176,9 @@ const scene = makeScene2D('scene', function* (view) {
     settings: defaultTextSettings
   });
 
-  // 이미지와 텍스트 동시에 표시
+  // 헤더, 이미지, 텍스트 모두 동시에 표시
   yield* all(
+    header.showHeader(), // 무한 반복 타이핑 효과
     slideBody.playSlides(),
     slideFooter.playFooter()
   );
