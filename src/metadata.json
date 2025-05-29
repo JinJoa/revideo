@@ -1,22 +1,18 @@
 {
   "audioUrl": "public/anacell-audio.wav",
   "images": [
-    "/images/%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%90%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A9.png",
-    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC01.jpg",
-    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC02.jpg",
-    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC01.jpg",
-    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC02.jpg",
-    "/images/%E1%84%89%E1%85%B5%E1%86%A8%E1%84%8B%E1%85%A3%E1%86%A8%E1%84%8E%E1%85%A5_%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%AA%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%91%E1%85%AE%E1%86%B7_%E1%84%87%E1%85%A9%E1%84%80%E1%85%A9.png",
-    "/images/%E1%84%8B%E1%85%A1%E1%84%82%E1%85%A1%E1%84%89%E1%85%A6%E1%86%AF%20%E1%84%8C%E1%85%A6%E1%84%91%E1%85%AE%E1%86%B7%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpg",
-    "/images/%E1%84%8B%E1%85%A1%E1%84%82%E1%85%A1%E1%84%89%E1%85%A6%E1%86%AF_%E1%84%85%E1%85%A9%E1%84%80%E1%85%A9.png",
-    "/images/%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%90%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A9.png",
-    "/images/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8E%E1%85%A6%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%89%E1%85%B5%E1%84%92%E1%85%A5%E1%86%B7%20%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8%E1%84%89%E1%85%A5.jpg",
-    "/images/%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%AD%E1%84%80%E1%85%B5%E1%84%89%E1%85%AE%E1%86%AF_CMX%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png",
-    "/images/%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%AD%E1%84%80%E1%85%B5%E1%84%89%E1%85%AE%E1%86%AF_DEE%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png",
-    "/images/%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%AD%E1%84%80%E1%85%B5%E1%84%89%E1%85%AE%E1%86%AF_ME-True%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png",
-    "/images/%E1%84%90%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A9_%E1%84%80%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%AB_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC.png",
-    "/images/%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%E1%84%8C%E1%85%B3%E1%86%BC.jpg",
-    "/images/cartoon_%EC%A0%84%EC%B2%B4.png"
+    "/images/cartoon_full.png",
+    "/images/male_image.png",
+    "/images/product_photo.jpg",
+    "/images/usage_result_male.JPG",
+    "/images/technical_explanation_CMX.png",
+    "/images/technical_explanation_DEE.png",
+    "/images/functional_cosmetics_examination_result.png",
+    "/images/technical_explanation_ME-True.png",
+    "/images/usage_result_female.JPG",
+    "/images/human_application_test_results.jpg",
+    "/images/korean_patent.jpg",
+    "/images/anacell_logo.png"
   ],
   "words": [
     {
