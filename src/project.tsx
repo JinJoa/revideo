@@ -9,26 +9,26 @@ import { ImageAnimationConfig, executeImageAnimations } from './animations/image
 
 
 // 랜덤 애니메이션 설정 생성 함수 (주석처리)
-// function getRandomImageAnimation(): ImageAnimationConfig {
-//   const zoomTypes = ['zoomIn', 'zoomOut', 'zoomInOut', 'static'];
-//   const panTypes = ['panLeft', 'panRight', 'panUp', 'panDown', 'none'];
-//   const transitionTypes = ['flash', 'blink', 'shutterTransition', 'fade', 'none'];
-//
-//   return {
-//     zoom: {
-//       type: zoomTypes[Math.floor(Math.random() * zoomTypes.length)] as any,
-//       intensity: 0.15
-//     },
-//     pan: {
-//       type: panTypes[Math.floor(Math.random() * panTypes.length)] as any,
-//       distance: 100
-//     },
-//     transition: {
-//       type: transitionTypes[Math.floor(Math.random() * transitionTypes.length)] as any,
-//       duration: 0.5
-//     }
-//   };
-// }
+function getRandomImageAnimation(): ImageAnimationConfig {
+  const zoomTypes = ['zoomIn', 'zoomOut', 'zoomInOut', 'static'];
+  const panTypes = ['panLeft', 'panRight', 'panUp', 'panDown', 'none'];
+  const transitionTypes = ['flash', 'blink', 'shutterTransition', 'fade', 'none'];
+
+  return {
+    zoom: {
+      type: zoomTypes[Math.floor(Math.random() * zoomTypes.length)] as any,
+      intensity: 0.15
+    },
+    pan: {
+      type: panTypes[Math.floor(Math.random() * panTypes.length)] as any,
+      distance: 100
+    },
+    transition: {
+      type: transitionTypes[Math.floor(Math.random() * transitionTypes.length)] as any,
+      duration: 0.5
+    }
+  };
+}
 
 // zoomIn과 zoomOut을 번갈아가며 사용하는 함수
 function getAlternatingZoomAnimation(index: number): ImageAnimationConfig {
