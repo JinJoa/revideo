@@ -1,6 +1,7 @@
-import { Img, Rect, View2D } from '@revideo/2d'
+import { Rect, View2D } from '@revideo/2d'
 import { Reference, waitFor, tween, all, createRef } from '@revideo/core'
 import { easeInOutQuad, easeInQuad, easeOutQuad } from '@revideo/core/lib/tweening'
+import { JinImage } from '../components/JinImage'
 
 // 줌 타입 정의
 export type ZoomType = 'zoomIn' | 'zoomOut' | 'zoomInOut' | 'static'
@@ -44,7 +45,7 @@ export interface AnimationOptions {
  * @param duration 애니메이션 지속 시간
  */
 export function* applyZoomAnimation(
-  imageRef: Reference<Img>, 
+  imageRef: Reference<JinImage>, 
   zoomType: ZoomType = 'static', 
   duration: number
 ) {
@@ -95,7 +96,7 @@ export function* applyZoomAnimation(
  * @param baseY 기본 Y 위치 (기본값: -50)
  */
 export function* applyPanAnimation(
-  imageRef: Reference<Img>, 
+  imageRef: Reference<JinImage>, 
   panType: PanType = 'none', 
   duration: number,
   baseY: number = -50
@@ -199,7 +200,7 @@ export function getInitialShutterState(shutterType: ShutterType = 'none'): { opa
  * @param baseY 기본 Y 위치 (기본값: -50)
  */
 export function* applyImageAnimations(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   options: AnimationOptions,
   duration: number,
   baseY: number = -50
@@ -235,7 +236,7 @@ export function* applyImageAnimations(
  * @param baseY 기본 Y 위치 (기본값: -50)
  */
 export function* applyShutterEffect(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   shutterType: ShutterType = 'none',
   duration: number,
   baseY: number = -50
@@ -312,7 +313,7 @@ export function* applyShutterEffect(
  * @param duration 애니메이션 지속 시간
  */
 export function* applyFadeOutAnimation(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   duration: number
 ) {
   const holdTime = duration * 0.9; // 90%는 현재 상태 유지
@@ -332,7 +333,7 @@ export function* applyFadeOutAnimation(
  * @param duration 애니메이션 지속 시간
  */
 export function* applyFadeInAnimation(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   duration: number
 ) {
   const holdTime = duration * 0.9; // 90%는 검정 상태 유지
@@ -353,7 +354,7 @@ export function* applyFadeInAnimation(
  * @param maxBlur 최대 blur 값(px)
  */
 export function* applyBlurOutAnimation(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   duration: number,
   maxBlur: number = 30
 ) {
@@ -375,7 +376,7 @@ export function* applyBlurOutAnimation(
  * @param maxBlur 최대 blur 값(px)
  */
 export function* applyBlurInAnimation(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   duration: number,
   maxBlur: number = 30
 ) {
@@ -397,7 +398,7 @@ export function* applyBlurInAnimation(
  * @param duration 애니메이션 지속 시간
  */
 export function* applyBrightnessInAnimation(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   duration: number
 ) {
   const animTime = duration * 0.1; // 10%만 애니메이션
@@ -418,7 +419,7 @@ export function* applyBrightnessInAnimation(
  * @param duration 애니메이션 지속 시간
  */
 export function* applyBrightnessOutAnimation(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   duration: number
 ) {
   const holdTime = duration * 0.9; // 90%는 밝은 상태 유지
@@ -440,7 +441,7 @@ export function* applyBrightnessOutAnimation(
  * @param baseY 기본 Y 위치
  */
 export function* applyImageAnimationsFromConfig(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   config: ImageAnimationConfig,
   duration: number,
   baseY: number = -50
@@ -475,7 +476,7 @@ export function* applyImageAnimationsFromConfig(
  * 구조화된 설정에서 줌 애니메이션을 적용하는 함수
  */
 export function* applyZoomAnimationFromConfig(
-  imageRef: Reference<Img>, 
+  imageRef: Reference<JinImage>, 
   zoomConfig: NonNullable<ImageAnimationConfig['zoom']>, 
   duration: number
 ) {
@@ -518,7 +519,7 @@ export function* applyZoomAnimationFromConfig(
  * 구조화된 설정에서 팬 애니메이션을 적용하는 함수
  */
 export function* applyPanAnimationFromConfig(
-  imageRef: Reference<Img>, 
+  imageRef: Reference<JinImage>, 
   panConfig: NonNullable<ImageAnimationConfig['pan']>, 
   duration: number,
   baseY: number = -50
@@ -567,7 +568,7 @@ export function* applyPanAnimationFromConfig(
  * 구조화된 설정에서 셔터 효과를 적용하는 함수
  */
 export function* applyShutterEffectFromConfig(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   transitionConfig: NonNullable<ImageAnimationConfig['transition']>,
   duration: number,
   baseY: number = -50
@@ -684,7 +685,7 @@ export function getInitialShutterStateFromConfig(
  * @param baseY 기본 Y 위치 (기본값: -50)
  */
 export function setImageInitialState(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   config: ImageAnimationConfig,
   baseY: number = -50
 ) {
@@ -724,7 +725,7 @@ export function setImageInitialState(
  * @param baseY 기본 Y 위치 (기본값: -50)
  */
 export function* applyDefinedImageAnimations(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   config: ImageAnimationConfig,
   duration: number,
   baseY: number = -50
@@ -764,7 +765,7 @@ export function* applyDefinedImageAnimations(
  * @param baseY 기본 Y 위치 (기본값: -50)
  */
 export function* executeImageAnimations(
-  imageRef: Reference<Img>,
+  imageRef: Reference<JinImage>,
   config: ImageAnimationConfig,
   duration: number,
   baseY: number = -50

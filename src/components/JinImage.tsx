@@ -163,7 +163,7 @@ export class JinImage extends Img {
     
     // 애니메이션 설정에 따른 초기 상태 설정
     // this를 imageRef로 사용 (자기 자신을 참조)
-    const selfRef = createRef<Img>()
+    const selfRef = createRef<JinImage>()
     selfRef(this)
     setImageInitialState(selfRef, config, this.baseY())
   }
@@ -210,7 +210,7 @@ export class JinImage extends Img {
 
     try {
       // 자기 자신을 참조로 사용
-      const selfRef = createRef<Img>()
+      const selfRef = createRef<JinImage>()
       selfRef(this)
 
       // 초기 상태 설정
@@ -448,7 +448,7 @@ export class JinImage extends Img {
     const effectiveConfig = config ?? this.getEffectiveAnimationConfig()
     
     // 자기 자신을 참조로 사용
-    const selfRef = createRef<Img>()
+    const selfRef = createRef<JinImage>()
     selfRef(this)
     
     // 초기 상태 설정

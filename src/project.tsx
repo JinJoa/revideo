@@ -1,4 +1,4 @@
-import { Audio, makeScene2D, Layout, Rect, Img, Txt } from '@revideo/2d';
+import { Audio, makeScene2D, Layout, Rect, Txt } from '@revideo/2d';
 import { all, createRef, useScene, makeProject, Reference } from '@revideo/core';
 import metadata from './metadata.json';
 import './global.css';
@@ -6,6 +6,7 @@ import { createSlideFooter, defaultTextSettings } from './components/SlideFooter
 import { createSlideHeader, HeaderEffects } from './components/SlideHeader';
 import { createSlideBody } from './components/SlideBody';
 import { ImageAnimationConfig, executeImageAnimations } from './animations/imageAnimations';
+import { JinImage } from './components/JinImage';
 
 
 // 랜덤 애니메이션 설정 생성 함수 (주석처리)

@@ -1,6 +1,7 @@
-import { Txt, View2D, Img, Rect } from '@revideo/2d';
+import { Txt, View2D, Rect } from '@revideo/2d';
 import { Reference, waitFor, tween, all, createRef, Color } from '@revideo/core';
 import { easeInOutQuad, easeInQuad, easeOutQuad, easeInBack, easeOutBack, easeInOutBack } from '@revideo/core/lib/tweening';
+import { JinImage } from '../components/JinImage';
 
 // 헤더 효과 타입 정의
 export type HeaderEffectType =
@@ -35,7 +36,7 @@ export interface HeaderEffectConfig {
 export interface HeaderElementRefs {
   headerRef: Reference<Txt>;
   backgroundRef?: Reference<Rect>;
-  backgroundImageRef?: Reference<Img>;
+  backgroundImageRef?: Reference<JinImage>;
   shadowRef?: Reference<Txt>;
   glowRef?: Reference<Txt>;
   additionalRefs?: any[];
@@ -253,9 +254,9 @@ export function* applyBackgroundImageEffect(
   imagePath: string,
   duration: number = 1.0
 ) {
-  const backgroundImageRef = createRef<Img>();
+  const backgroundImageRef = createRef<JinImage>();
   
-  const bgImg = new Img({
+  const bgImg = new JinImage({
     src: imagePath,
     width: 1920,
     height: 1080,
