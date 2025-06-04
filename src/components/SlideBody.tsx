@@ -21,19 +21,23 @@ interface SlideBodyResult {
 export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps): SlideBodyResult {
   const imageRef = createRef<JinImage>()
 
+  // 첫 번째 슬라이드의 지속시간을 애니메이션 지속시간으로 사용
+  const animationDuration = slides[0]?.timing?.duration || 3;
+
   // 첫 번째 이미지 추가 - imageContainer가 있으면 그곳에, 없으면 view에 추가
   if (imageContainer) {
     imageContainer().add(
     <JinImage
       ref={imageRef}
       src={slides[0].content.image}
-      height={"100%"}  // 컨테이너에 맞게 조정
+      // 이미지 크기를 컨테이너에 맞게 조정하되 비율 유지
+      size={["70%", null]} // width만 설정하고 height는 비율에 맞춰 자동 조정
       x={0}
       y={0}
       opacity={1}
       scale={1.0}
       autoPlay={true}
-      animationDuration={3}
+      animationDuration={animationDuration}
     />
     );
   } else {
@@ -41,13 +45,14 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
       <JinImage
         ref={imageRef}
         src={slides[0].content.image}
-        height={"100%"}
+        // 이미지 크기를 컨테이너에 맞게 조정하되 비율 유지
+        size={["70%", null]} // width만 설정하고 height는 비율에 맞춰 자동 조정
         x={0}
         y={0}
         opacity={1}
         scale={1.0}
         autoPlay={true}
-        animationDuration={3}
+        animationDuration={animationDuration}
       />
     );
   }
@@ -55,27 +60,31 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
   function* playSlides() {
     // Loop through each slide
     for (let i = 0; i < slides.length; i++) {
-      console.log(`Processing slide ${i + 1} with audio: ${slides[i].content.audio}`)
+      console.log(`Processing slide ${i + 1}/${slides.length}, duration: ${slides[i].timing?.duration || 3}s`)
 
       // Skip the first slide since it's already set up
       if (i > 0) {
         // Change to the next image
         imageRef().src(slides[i].content.image)
-        yield* imageRef().startAnimation()
+        // 애니메이션 지속시간을 현재 슬라이드 지속시간에 맞춤
+        imageRef().animationDuration(slides[i].timing?.duration || 3)
       }
 
-      // Execute image animations based on slide configuration
+      // Execute image animations for the exact slide duration - no additional waiting
+      const slideDuration = slides[i].timing?.duration || 3;
+      
       if (slides[i].animations?.image) {
+        // 애니메이션을 슬라이드 지속시간 동안 실행
         yield* imageRef().playAnimation(slides[i].animations.image);
       } else {
-        // Default animation if none specified
+        // Default animation if none specified - run for exact slide duration
         yield* imageRef().startAnimation();
       }
-
-      // Wait for the slide duration
-      const slideDuration = slides[i].timing?.duration || 3;
-      yield* waitFor(slideDuration);
+      
+      // No additional waitFor here - the animation should take exactly slideDuration
     }
+    
+    console.log('All slides completed');
   }
 
   return { imageRef, playSlides };

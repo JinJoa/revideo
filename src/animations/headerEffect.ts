@@ -137,9 +137,22 @@ export function* applyInfiniteTypewriterEffect(
   const charDuration = typingDuration / charCount;
   
   const cycleTime = typingDuration + pauseDuration;
-  const cycles = Math.ceil(totalDuration / cycleTime);
+  let elapsedTime = 0;
+  let cycle = 0;
   
-  for (let cycle = 0; cycle < cycles; cycle++) {
+  console.log(`Infinite typewriter: totalDuration=${totalDuration}s, cycleTime=${cycleTime}s`);
+  
+  while (elapsedTime < totalDuration) {
+    const remainingTime = totalDuration - elapsedTime;
+    
+    // 남은 시간이 한 사이클보다 적으면 중단
+    if (remainingTime < typingDuration) {
+      console.log(`Breaking early: remainingTime=${remainingTime}s < typingDuration=${typingDuration}s`);
+      break;
+    }
+    
+    console.log(`Starting cycle ${cycle + 1}, elapsedTime=${elapsedTime}s`);
+    
     // 타이핑 효과
     let currentText = '';
     
@@ -157,15 +170,30 @@ export function* applyInfiniteTypewriterEffect(
       }
     }
     
-    // 완성된 텍스트 표시 후 잠시 대기
-    yield* waitFor(pauseDuration);
+    elapsedTime += typingDuration;
     
-    // 다음 사이클을 위해 텍스트를 빈 상태로 초기화 (지우기 애니메이션 없이)
-    if (cycle < cycles - 1) {
-      headerRef().text('');
-      yield* waitFor(0.5);
+    // 완성된 텍스트 표시 후 잠시 대기 (남은 시간 확인)
+    const remainingTimeAfterTyping = totalDuration - elapsedTime;
+    if (remainingTimeAfterTyping > 0) {
+      const actualPauseTime = Math.min(pauseDuration, remainingTimeAfterTyping);
+      yield* waitFor(actualPauseTime);
+      elapsedTime += actualPauseTime;
+      
+      // 텍스트 초기화 (다음 사이클이 있을 경우만)
+      if (remainingTimeAfterTyping > actualPauseTime) {
+        headerRef().text('');
+        const clearTime = Math.min(0.5, totalDuration - elapsedTime);
+        if (clearTime > 0) {
+          yield* waitFor(clearTime);
+          elapsedTime += clearTime;
+        }
+      }
     }
+    
+    cycle++;
   }
+  
+  console.log(`Infinite typewriter completed: ${cycle} cycles, finalElapsedTime=${elapsedTime}s`);
 }
 
 /**

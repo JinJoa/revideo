@@ -65,10 +65,9 @@ const scene = makeScene2D('scene', function* (view) {
   // 오디오 길이를 metadata.json의 마지막 단어 시간으로 설정
   const audioDuration = words[words.length-1].end;
   
-  // 전환 효과 시간을 고려한 전체 duration 계산
-  const transitionTime = 0.3; // 각 슬라이드 전환에 필요한 시간
-  const totalTransitionTime = transitionTime * (metadata.images.length - 1);
-  const duration = audioDuration - totalTransitionTime;
+  // 이미지 개수에 따른 슬라이드 지속 시간 계산
+  const slideCount = metadata.images.length;
+  const slideDuration = audioDuration / slideCount;
 
   // metadata.json에서 모든 이미지 가져오기
   const images = metadata.images;
@@ -79,10 +78,7 @@ const scene = makeScene2D('scene', function* (view) {
       audio: audioUrl
     },
     timing: {
-      // 마지막 슬라이드의 경우 오디오 길이에 맞춤
-      duration: index === images.length - 1 
-        ? duration - (duration / images.length) * (images.length - 1)
-        : duration / images.length
+      duration: slideDuration // 모든 슬라이드 동일한 지속 시간
     },
     animations: {
       image: getAlternatingZoomAnimation(index)
@@ -169,7 +165,7 @@ const scene = makeScene2D('scene', function* (view) {
   const header = createSlideHeader({
     header: "아나셀 탈모 솔루션",
     view,
-    ...HeaderEffects.createInfiniteTypewriter(duration) // 전체 영상 시간 동안 무한 반복
+    ...HeaderEffects.createInfiniteTypewriter(audioDuration) // 오디오 길이와 동일하게 설정
   });
 
   // 슬라이드 바디 생성
@@ -186,14 +182,15 @@ const scene = makeScene2D('scene', function* (view) {
     settings: defaultTextSettings
   });
 
-  // 헤더, 이미지, 텍스트 모두 동시에 표시
+  // 헤더, 이미지, 텍스트 모두 동시에 표시하고 정확히 오디오 길이만큼 실행
   yield* all(
     header.showHeader(), // 무한 반복 타이핑 효과
     slideBody.playSlides(),
     slideFooter.playFooter()
   );
 
-  
+  // 오디오가 끝나면 씬도 정확히 종료되도록 보장
+  console.log(`Scene ending at audio duration: ${audioDuration} seconds`);
 });
 
 /**
