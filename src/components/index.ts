@@ -1,1 +1,0 @@
-export { JinImage, type JinImageProps } from './JinImage' 

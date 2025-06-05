@@ -86,22 +86,16 @@ export const HeaderEffects = {
     effectConfig: { intensity, duration }
   }),
   
-  // 타이프라이터 효과
-  createTypewriter: (duration: number = 2.0) => ({
-    effect: 'typewriter' as HeaderEffectType,
-    effectConfig: { duration }
-  }),
-  
   // 무한 반복 타이프라이터 효과
   createInfiniteTypewriter: (totalDuration: number = 30.0) => ({
     effect: 'infinite_typewriter' as HeaderEffectType,
     effectConfig: { duration: totalDuration }
   }),
   
-  // 충격 줌 효과
-  createPunchZoom: (intensity: number = 1.3, duration: number = 1.2) => ({
-    effect: 'punch_zoom' as HeaderEffectType,
-    effectConfig: { intensity, duration }
+  // 무한 반복 충격 줌 효과
+  createInfinitePunchZoom: (totalDuration: number = 30.0, intensity: number = 1.3) => ({
+    effect: 'infinite_punch_zoom' as HeaderEffectType,
+    effectConfig: { intensity, duration: totalDuration }
   }),
   
   // 하이라이트 단어 효과
@@ -110,40 +104,29 @@ export const HeaderEffects = {
     effectConfig: { highlightWords: words, highlightColor: color, duration }
   }),
   
-  // 배경 이미지 효과
-  createWithBackground: (imagePath: string, duration: number = 1.0) => ({
-    effect: 'background_image' as HeaderEffectType,
-    effectConfig: { backgroundImage: imagePath, duration }
+  
+  // 무한 반복 글로우 효과
+  createInfiniteGlow: (totalDuration: number = 30.0, color: string = '#32D74B') => ({
+    effect: 'infinite_glow_effect' as HeaderEffectType,
+    effectConfig: { glowColor: color, duration: totalDuration }
   }),
   
-  // 글로우 효과
-  createGlow: (color: string = '#32D74B', duration: number = 1.0) => ({
-    effect: 'glow_effect' as HeaderEffectType,
-    effectConfig: { glowColor: color, duration }
+  // 무한 반복 바운스 효과
+  createInfiniteBounce: (totalDuration: number = 30.0) => ({
+    effect: 'infinite_bounce' as HeaderEffectType,
+    effectConfig: { duration: totalDuration }
   }),
   
-  // 바운스 인 효과
-  createBounce: (duration: number = 1.0) => ({
-    effect: 'bounce_in' as HeaderEffectType,
-    effectConfig: { duration }
+  // 무한 반복 무지개 텍스트 효과
+  createInfiniteRainbow: (totalDuration: number = 30.0) => ({
+    effect: 'infinite_rainbow_text' as HeaderEffectType,
+    effectConfig: { duration: totalDuration }
   }),
   
-  // 슬라이드 분할 효과
-  createSlideSplit: (duration: number = 1.5) => ({
-    effect: 'slide_split' as HeaderEffectType,
-    effectConfig: { duration }
-  }),
-  
-  // 무지개 텍스트 효과
-  createRainbow: (duration: number = 3.0) => ({
-    effect: 'rainbow_text' as HeaderEffectType,
-    effectConfig: { duration }
-  }),
-  
-  // 흔들림 강조 효과
-  createShake: (intensity: number = 10, duration: number = 1.0) => ({
-    effect: 'shake_emphasis' as HeaderEffectType,
-    effectConfig: { intensity, duration }
+  // 무한 반복 흔들림 강조 효과
+  createInfiniteShake: (totalDuration: number = 30.0, intensity: number = 10) => ({
+    effect: 'infinite_shake_emphasis' as HeaderEffectType,
+    effectConfig: { intensity, duration: totalDuration }
   }),
 
   // 프리셋 사용 헬퍼

@@ -1,9 +1,10 @@
 import {makeProject} from '@revideo/core';
 import FirstScene from './scenes/first';
+import SecondScene from './scenes/second';
 
 export default makeProject({
   name: 'revideo_test',
-  scenes: [FirstScene],
+  scenes: [SecondScene],
   variables: {
     text: 'Hello Revideo!',
   },
