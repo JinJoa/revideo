@@ -5,8 +5,11 @@ async function render() {
 
   // This is the main function that renders the video
   const file = await renderVideo({
-    projectFile: './src/project.tsx',
-    settings: {logProgress: true},
+    projectFile: './src/main.ts',
+    settings: {
+      logProgress: true,
+      outFile: 'anacell_hair_solution.mp4',
+    },
   });
 
   console.log(`Rendered video to ${file}`);
