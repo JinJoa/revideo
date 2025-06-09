@@ -5,7 +5,7 @@ import './global.css';
 import { createSlideFooter, defaultTextSettings } from './components/SlideFooter';
 import { createSlideHeader } from './components/SlideHeader';
 import { createSlideBody } from './components/SlideBody';
-import { ImageAnimationConfig, executeImageAnimations } from './animations/imageAnimations';
+import { ImageAnimationConfig, executeImageAnimations } from './components/JinImage';
 import { JinImage } from './components/JinImage';
 
 

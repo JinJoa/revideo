@@ -1,4 +1,4 @@
-import { ImageAnimationConfig } from '../animations/imageAnimations'
+import { ImageAnimationConfig } from '../components/JinImage'
 
 // 슬라이드 콘텐츠 인터페이스
 export interface SlideContent {

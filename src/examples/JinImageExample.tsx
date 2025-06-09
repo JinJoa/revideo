@@ -19,20 +19,21 @@ export default makeScene2D('JinImageExample', function* (view: View2D) {
       <JinImage
         ref={image1}
         src={exampleImageUrl}
-        size={[400, 300]}
+        width={400}
+        height={300}
         position={[-600, -200]}
         zoomType="zoomIn"
         panType="panRight"
         shutterType="fade"
         animationDuration={3}
-        opacity={0}
       />
 
       {/* 구조화된 애니메이션 설정 사용 */}
       <JinImage
         ref={image2}
         src={exampleImageUrl}
-        size={[400, 300]}
+        width={400}
+        height={300}
         position={[200, -200]}
         animationConfig={{
           zoom: {
@@ -49,35 +50,34 @@ export default makeScene2D('JinImageExample', function* (view: View2D) {
           }
         }}
         animationDuration={4}
-        opacity={0}
       />
 
       {/* 블러 효과 */}
       <JinImage
         ref={image3}
         src={exampleImageUrl}
-        size={[400, 300]}
+        width={400}
+        height={300}
         position={[-600, 250]}
         zoomType="static"
         panType="none"
         shutterType="none"
         animationDuration={2.5}
         maxBlur={20}
-        opacity={1}
       />
 
       {/* 플래시 효과 */}
       <JinImage
         ref={image4}
         src={exampleImageUrl}
-        size={[400, 300]}
+        width={400}
+        height={300}
         position={[200, 250]}
         zoomType="zoomOut"
         panType="panUp"
         shutterType="flash"
         animationDuration={3.5}
         zoomIntensity={0.25}
-        opacity={1}
       />
     </>
   )

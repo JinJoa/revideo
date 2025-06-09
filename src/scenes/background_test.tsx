@@ -5,7 +5,7 @@ import '../global.css';
 import { createSlideFooter, defaultTextSettings } from '../components/SlideFooter';
 import { createSlideHeader } from '../components/SlideHeader';
 import { createSlideBody } from '../components/SlideBody';
-import { ImageAnimationConfig } from '../animations/imageAnimations';
+import { ImageAnimationConfig } from '../components/JinImage';
 import { LineEffect } from '../background/LineEffect';
 import { ParticleEffect } from '../background/ParticleEffect';
 

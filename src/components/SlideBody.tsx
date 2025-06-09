@@ -1,9 +1,7 @@
 import { Rect, View2D, Txt, Audio, Layout } from '@revideo/2d'
 import { createRef, waitFor, all, Reference, ThreadGenerator } from '@revideo/core'
 
-import { 
-  executeImageAnimations
-} from '../animations/imageAnimations'
+// executeImageAnimations는 이제 JinImage에서 직접 사용
 import { StructuredSlide } from '../types/slide'
 import { JinImage, JinImageProps } from './JinImage'
 
@@ -30,12 +28,12 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
     <JinImage
       ref={imageRef}
       src={slides[0].content.image}
-      // 이미지 크기를 컨테이너에 맞게 조정하되 비율 유지
-      size={["70%", null]} // width만 설정하고 height는 비율에 맞춰 자동 조정
+      // 이미지 크기 설정 (Node 기반으로 width/height 사용)
+      width={800}
+      height={600}
+      maintainAspectRatio={true}
       x={0}
       y={0}
-      opacity={1}
-      scale={1.0}
       autoPlay={true}
       animationDuration={animationDuration}
     />
@@ -45,12 +43,12 @@ export function createSlideBody({ slides, view, imageContainer }: SlideBodyProps
       <JinImage
         ref={imageRef}
         src={slides[0].content.image}
-        // 이미지 크기를 컨테이너에 맞게 조정하되 비율 유지
-        size={["70%", null]} // width만 설정하고 height는 비율에 맞춰 자동 조정
+        // 이미지 크기 설정 (Node 기반으로 width/height 사용)
+        width={800}
+        height={600}
+        maintainAspectRatio={true}
         x={0}
         y={0}
-        opacity={1}
-        scale={1.0}
         autoPlay={true}
         animationDuration={animationDuration}
       />
@@ -111,14 +109,18 @@ export function* displayImages({ imageContainer, images, duration }: DisplayImag
       <JinImage
         ref={imageRef}
         src={images[i]}
-        width={"100%"} // 컨테이너 가로폭의 100%로 설정
+        width={800} // 컨테이너 가로폭 설정
+        height={600}
+        maintainAspectRatio={true}
         x={0}
         y={0}
-        opacity={0}
         autoPlay={false}
         animationDuration={0.5}
       />
     );
+    
+    // 이미지를 먼저 숨긴 상태로 설정
+    imageRef().hide();
     
     // 간단한 페이드인 애니메이션
     yield* imageRef().fadeIn(0.5);
