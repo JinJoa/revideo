@@ -5,24 +5,19 @@ import { JinImage } from '../components/JinImage';
 
 // 헤더 효과 타입 정의
 export type HeaderEffectType =
-  | '3d_extrude'      // 3D 돌출 글씨체
-  | 'infinite_typewriter' // 무한 반복 타이프라이터 효과
-  | 'infinite_punch_zoom' // 무한 반복 충격 줌 효과
-  | 'highlight_words' // 일부 단어 하이라이트
-  | 'background_image' // 배경 이미지
-  | 'infinite_glow_effect' // 무한 반복 글로우 효과
-  | 'infinite_bounce' // 무한 반복 바운스 효과
-  | 'infinite_rainbow_text' // 무한 반복 무지개 텍스트 효과
-  | 'infinite_shake_emphasis' // 무한 반복 흔들림 강조 효과
+  | '3d_extrude'  // 3D 돌출 글씨체
+  | 'typewriter' // 타이프라이터 효과
+  | 'punch_zoom' // 충격 줌 효과
+  | 'neon_sign' // 네온사인 효과
+  | 'bounce' // 바운스 효과
+  | 'rainbow_text' // 무지개 텍스트 효과
+  | 'shake_emphasis' // 흔들림 강조 효과
 
 // 헤더 효과 설정 인터페이스
 export interface HeaderEffectConfig {
   type: HeaderEffectType;
   duration?: number;
   intensity?: number;
-  highlightWords?: string[]; // 하이라이트할 단어들
-  highlightColor?: string;   // 하이라이트 색상
-  backgroundImage?: string;  // 배경 이미지 경로
   glowColor?: string;       // 글로우 색상
   textColor?: string;       // 기본 텍스트 색상
   strokeColor?: string;     // 테두리 색상
@@ -76,9 +71,9 @@ export function* apply3DExtrudeEffect(
 
   // 메인 텍스트 스타일 설정
   headerRef().fill('#32D74B');
-  headerRef().stroke('#FFFFFF');
+  headerRef().stroke('#034D0E');
   headerRef().strokeFirst(true);
-  headerRef().lineWidth(2);
+  headerRef().lineWidth(10);
   
   // 애니메이션: 3D 효과와 함께 나타남
   yield* all(
@@ -93,7 +88,7 @@ export function* apply3DExtrudeEffect(
 
 
 /**
- * 무한 반복 타이프라이터 효과
+ * 타이프라이터 효과
  */
 export function* applyInfiniteTypewriterEffect(
   headerRef: Reference<Txt>,
@@ -166,74 +161,13 @@ export function* applyInfiniteTypewriterEffect(
   console.log(`Infinite typewriter completed: ${cycle} cycles, finalElapsedTime=${elapsedTime}s`);
 }
 
-/**
- * 일부 단어 하이라이트 효과
- */
-export function* applyHighlightWordsEffect(
-  view: View2D,
-  headerText: string,
-  highlightWords: string[],
-  config: HeaderEffectConfig,
-  duration: number = 1.0
-) {
-  const words = headerText.split(' ');
-  const wordRefs: Reference<Txt>[] = [];
-  const baseY = config.fontSize ? -700 : -700;
-  let currentX = -((words.length - 1) * 60); // 단어들을 중앙 정렬하기 위한 시작 X 위치
-  
-  // 각 단어를 개별 텍스트 요소로 생성
-  for (let i = 0; i < words.length; i++) {
-    const wordRef = createRef<Txt>();
-    const isHighlight = highlightWords.includes(words[i]);
-    
-    const wordTxt = new Txt({
-      text: words[i],
-      fill: isHighlight ? (config.highlightColor || '#FF6B6B') : (config.textColor || '#32D74B'),
-      fontFamily: 'Arial',
-      fontSize: config.fontSize || 110,
-      fontWeight: config.fontWeight || 900,
-      opacity: 0,
-      x: currentX,
-      y: baseY,
-      textAlign: 'center',
-      stroke: config.strokeColor || '#1E293B',
-      strokeFirst: true,
-      lineWidth: isHighlight ? 5 : 3
-    });
-    
-    // 하이라이트 효과는 색상과 크기로 구현
-    
-    wordRef(wordTxt);
-    view.add(wordTxt);
-    wordRefs.push(wordRef);
-    currentX += words[i].length * 25 + 40; // 단어 길이에 따른 간격 조정
-  }
-  
-  // 단어들을 순차적으로 나타내기
-  for (let i = 0; i < wordRefs.length; i++) {
-    const isHighlight = highlightWords.includes(words[i]);
-    
-    yield* all(
-      wordRefs[i]().opacity(1, 0.3, easeOutQuad),
-      wordRefs[i]().scale(isHighlight ? 1.2 : 1.0, 0.3, easeOutBack),
-      wordRefs[i]().scale(isHighlight ? 1.1 : 1.0, 0.2, easeInOutQuad)
-    );
-    
-    if (i < wordRefs.length - 1) {
-      yield* waitFor(0.1);
-    }
-  }
-  
-  return wordRefs;
-}
-
 
 /**
- * 무한 반복 충격 줌 (Punch Zoom) 효과
+ * 충격 줌 (Punch Zoom) 효과
  */
 export function* applyInfinitePunchZoomEffect(
   headerRef: Reference<Txt>,
-  totalDuration: number = 30.0,
+  totalDuration: number = 10.0,
   intensity: number = 1.3
 ) {
   headerRef().opacity(1);
@@ -270,12 +204,12 @@ export function* applyInfinitePunchZoomEffect(
 }
 
 /**
- * 무한 반복 글로우 효과
+ * 글로우 효과
  */
 export function* applyInfiniteGlowEffect(
   headerRef: Reference<Txt>,
-  glowColor: string = '#dbfffe',
-  totalDuration: number = 30.0
+  glowColor: string,
+  totalDuration: number = 10.0
 ) {
   headerRef().opacity(1);
   
@@ -310,12 +244,10 @@ export function* applyInfiniteGlowEffect(
   }
   
   // 메인 텍스트 스타일 설정
-  headerRef().fill('#FFFFFF');
-  headerRef().stroke(glowColor);
   headerRef().strokeFirst(true);
   headerRef().lineWidth(2);
   
-  // 무한 반복 글로우 나타났다가 사라지기
+  // 글로우 나타났다가 사라지기
   const cycleTime = 3.0; // 한 사이클 시간 (나타나고 사라지는 시간)
   let elapsedTime = 0;
   
@@ -359,11 +291,11 @@ export function* applyInfiniteGlowEffect(
 }
 
 /**
- * 무한 반복 바운스 효과
+ * 바운스 효과
  */
 export function* applyInfiniteBounceEffect(
   headerRef: Reference<Txt>,
-  totalDuration: number = 30.0
+  totalDuration: number = 10.0
 ) {
   headerRef().opacity(1);
   headerRef().scale(1.0);
@@ -390,11 +322,11 @@ export function* applyInfiniteBounceEffect(
 }
 
 /**
- * 무한 반복 무지개 텍스트 효과
+ * 무지개 텍스트 효과
  */
 export function* applyInfiniteRainbowTextEffect(
   headerRef: Reference<Txt>,
-  totalDuration: number = 30.0
+  totalDuration: number = 10.0
 ) {
   headerRef().opacity(1);
   headerRef().fill('#FFFFFF');
@@ -425,11 +357,11 @@ export function* applyInfiniteRainbowTextEffect(
 }
 
 /**
- * 무한 반복 흔들림 강조 효과
+ * 흔들림 강조 효과
  */
 export function* applyInfiniteShakeEmphasisEffect(
   headerRef: Reference<Txt>,
-  totalDuration: number = 30.0,
+  totalDuration: number = 10.0,
   intensity: number = 10
 ) {
   headerRef().opacity(1);
@@ -477,7 +409,7 @@ export function* applyHeaderEffect(
       additionalRefs = yield* apply3DExtrudeEffect(headerRef, duration, config.intensity || 5);
       break;
       
-    case 'infinite_typewriter':
+    case 'typewriter':
       yield* applyInfiniteTypewriterEffect(
         headerRef,
         headerText,
@@ -487,38 +419,23 @@ export function* applyHeaderEffect(
       );
       break;
       
-    case 'infinite_punch_zoom':
+    case 'punch_zoom':
       yield* applyInfinitePunchZoomEffect(headerRef, duration, config.intensity || 1.3);
       break;
       
-    case 'highlight_words':
-      if (config.highlightWords) {
-        additionalRefs = yield* applyHighlightWordsEffect(view, headerText, config.highlightWords, config, duration);
-        // 원본 헤더는 숨김
-        headerRef().opacity(0);
-      }
+    case 'neon_sign':
+      additionalRefs = yield* applyInfiniteGlowEffect(headerRef, config.glowColor, duration);
       break;
       
-    // case 'background_image':
-    //   if (config.backgroundImage) {
-    //     const bgRef = yield* applyBackgroundImageEffect(view, headerRef, config.backgroundImage, duration);
-    //     additionalRefs = [bgRef];
-    //   }
-    //   break;
-      
-    case 'infinite_glow_effect':
-      additionalRefs = yield* applyInfiniteGlowEffect(headerRef, config.glowColor || '#32D74B', duration);
-      break;
-      
-    case 'infinite_bounce':
+    case 'bounce':
       yield* applyInfiniteBounceEffect(headerRef, duration);
       break;
       
-    case 'infinite_rainbow_text':
+    case 'rainbow_text':
       yield* applyInfiniteRainbowTextEffect(headerRef, duration);
       break;
       
-    case 'infinite_shake_emphasis':
+    case 'shake_emphasis':
       yield* applyInfiniteShakeEmphasisEffect(headerRef, duration, config.intensity || 10);
       break;
       
@@ -546,78 +463,3 @@ export function cleanupHeaderEffect(refs: HeaderElementRefs) {
     });
   }
 }
-
-/**
- * 미리 정의된 헤더 효과 프리셋
- */
-export const HeaderEffectPresets: Record<string, HeaderEffectConfig> = {
-  // 기본 3D 효과
-  basic3D: {
-    type: '3d_extrude',
-    duration: 1.0,
-    intensity: 3,
-    textColor: '#32D74B',
-    strokeColor: '#1d8505'
-  },
-  
-  // 무한 타이프라이터 효과
-  infiniteTypewriter: {
-    type: 'infinite_typewriter',
-    duration: 30.0,
-    textColor: '#32D74B',
-    strokeColor: '#1E293B'
-  },
-  
-  // 강력한 무한 충격 줌
-  infinitePowerPunch: {
-    type: 'infinite_punch_zoom',
-    duration: 30.0,
-    intensity: 1.5,
-    textColor: '#FF6B6B',
-    strokeColor: '#FFFFFF'
-  },
-  
-  // 하이라이트 단어 (예시)
-  highlightDemo: {
-    type: 'highlight_words',
-    duration: 1.5,
-    highlightWords: ['탈모'],
-    highlightColor: '#FFD93D',
-    textColor: '#32D74B',
-    strokeColor: '#1E293B'
-  },
-  
-  // 무한 글로우 효과
-  infiniteGreenGlow: {
-    type: 'infinite_glow_effect',
-    duration: 30.0,
-    glowColor: '#32D74B',
-    textColor: '#FFFFFF',
-    strokeColor: '#000000'
-  },
-  
-  // 무한 바운스
-  infiniteBounceIn: {
-    type: 'infinite_bounce',
-    duration: 30.0,
-    textColor: '#32D74B',
-    strokeColor: '#1E293B'
-  },
-  
-  // 무한 무지개 텍스트
-  infiniteRainbow: {
-    type: 'infinite_rainbow_text',
-    duration: 30.0,
-    textColor: '#FFFFFF',
-    strokeColor: '#FFFFFF'
-  },
-  
-  // 무한 흔들림 강조
-  infiniteShake: {
-    type: 'infinite_shake_emphasis',
-    duration: 30.0,
-    intensity: 15,
-    textColor: '#FF6B6B',
-    strokeColor: '#FFFFFF'
-  }
-};

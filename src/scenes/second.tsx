@@ -3,7 +3,7 @@ import { all, createRef } from '@revideo/core';
 import metadata from '../metadata.json';
 import '../global.css';
 import { createSlideFooter, defaultTextSettings } from '../components/SlideFooter';
-import { createSlideHeader, HeaderEffects } from '../components/SlideHeader';
+import { createSlideHeader } from '../components/SlideHeader';
 import { createSlideBody } from '../components/SlideBody';
 import { ImageAnimationConfig } from '../animations/imageAnimations';
 import { ParticleEffect } from '../background/ParticleEffect'
@@ -176,11 +176,17 @@ export default makeScene2D('SecondScene', function* (view) {
     </>
   );
 
-  // 헤더 생성 (무한 반복 무지개 텍스트 효과 적용)
+  // 헤더 생성 
   const header = createSlideHeader({
     header: "아나셀 탈모 솔루션",
     view,
-    ...HeaderEffects.createInfiniteGlow(audioDuration) // 오디오 전체 시간 동안 무지개 효과
+    effect: "rainbow_text",  //효과 타입 직접 사용
+    effectConfig: {
+      duration: audioDuration,
+      textColor: "#FFFFFF",
+      strokeColor: "#08EE0E",
+      glowColor: "#08EE0E"
+    }
   });
 
   // 슬라이드 바디 생성

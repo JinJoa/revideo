@@ -3,14 +3,13 @@ import { createRef } from '@revideo/core';
 import { JinText } from './JinText';
 import {
   HeaderEffectType,
-  HeaderEffectConfig,
-  HeaderEffectPresets
+  HeaderEffectConfig
 } from '../animations/headerEffect';
 
 interface SlideHeaderProps {
   header: string;
   view: View2D;
-  effect?: HeaderEffectType | keyof typeof HeaderEffectPresets;
+  effect?: HeaderEffectType;
   effectConfig?: Partial<HeaderEffectConfig>;
   x?: number;
   y?: number;
@@ -34,15 +33,12 @@ export function createSlideHeader({
       effectType={effect as HeaderEffectType}
       effectDuration={effectConfig?.duration}
       effectIntensity={effectConfig?.intensity}
-      highlightWords={effectConfig?.highlightWords}
-      highlightColor={effectConfig?.highlightColor}
-      backgroundImage={effectConfig?.backgroundImage}
       glowColor={effectConfig?.glowColor}
       textColor={effectConfig?.textColor}
       strokeColor={effectConfig?.strokeColor}
       textSize={effectConfig?.fontSize}
       textWeight={effectConfig?.fontWeight}
-      preset={typeof effect === 'string' && effect in HeaderEffectPresets ? effect : null}
+      // preset={typeof effect === 'string' && effect in HeaderEffectPresets ? effect : null}
       x={x}
       y={y}
     />
@@ -61,15 +57,15 @@ export function createSlideHeader({
       yield* jinTextRef().stopEffect();
     },
     
-    // 헤더 효과 변경
-    *changeEffect(newEffect: HeaderEffectType | keyof typeof HeaderEffectPresets, newConfig?: Partial<HeaderEffectConfig>) {
-      yield* jinTextRef().changeEffect(newEffect as HeaderEffectType, newConfig);
-    },
+    // // 헤더 효과 변경
+    // *changeEffect(newEffect: HeaderEffectType | keyof typeof HeaderEffectPresets, newConfig?: Partial<HeaderEffectConfig>) {
+    //   yield* jinTextRef().changeEffect(newEffect as HeaderEffectType, newConfig);
+    // },
     
-    // 프리셋 적용
-    *applyPreset(presetName: keyof typeof HeaderEffectPresets) {
-      yield* jinTextRef().applyPreset(presetName);
-    },
+    // // 프리셋 적용
+    // *applyPreset(presetName: keyof typeof HeaderEffectPresets) {
+    //   yield* jinTextRef().applyPreset(presetName);
+    // },
     
     // 텍스트 변경
     *changeText(newText: string) {
@@ -77,61 +73,3 @@ export function createSlideHeader({
     }
   };
 }
-
-// 간소화된 헬퍼 함수들 (JinText 컴포넌트 활용)
-export const HeaderEffects = {
-  // 3D 돌출 효과
-  create3D: (intensity: number = 3, duration: number = 1.0) => ({
-    effect: '3d_extrude' as HeaderEffectType,
-    effectConfig: { intensity, duration }
-  }),
-  
-  // 무한 반복 타이프라이터 효과
-  createInfiniteTypewriter: (totalDuration: number = 30.0) => ({
-    effect: 'infinite_typewriter' as HeaderEffectType,
-    effectConfig: { duration: totalDuration }
-  }),
-  
-  // 무한 반복 충격 줌 효과
-  createInfinitePunchZoom: (totalDuration: number = 30.0, intensity: number = 1.3) => ({
-    effect: 'infinite_punch_zoom' as HeaderEffectType,
-    effectConfig: { intensity, duration: totalDuration }
-  }),
-  
-  // 하이라이트 단어 효과
-  createHighlight: (words: string[], color: string = '#FFD93D', duration: number = 1.5) => ({
-    effect: 'highlight_words' as HeaderEffectType,
-    effectConfig: { highlightWords: words, highlightColor: color, duration }
-  }),
-  
-  
-  // 무한 반복 글로우 효과
-  createInfiniteGlow: (totalDuration: number = 30.0, color: string = '#32D74B') => ({
-    effect: 'infinite_glow_effect' as HeaderEffectType,
-    effectConfig: { glowColor: color, duration: totalDuration }
-  }),
-  
-  // 무한 반복 바운스 효과
-  createInfiniteBounce: (totalDuration: number = 30.0) => ({
-    effect: 'infinite_bounce' as HeaderEffectType,
-    effectConfig: { duration: totalDuration }
-  }),
-  
-  // 무한 반복 무지개 텍스트 효과
-  createInfiniteRainbow: (totalDuration: number = 30.0) => ({
-    effect: 'infinite_rainbow_text' as HeaderEffectType,
-    effectConfig: { duration: totalDuration }
-  }),
-  
-  // 무한 반복 흔들림 강조 효과
-  createInfiniteShake: (totalDuration: number = 30.0, intensity: number = 10) => ({
-    effect: 'infinite_shake_emphasis' as HeaderEffectType,
-    effectConfig: { intensity, duration: totalDuration }
-  }),
-
-  // 프리셋 사용 헬퍼
-  usePreset: (presetName: keyof typeof HeaderEffectPresets) => ({
-    effect: presetName,
-    effectConfig: {}
-  })
-};

@@ -3,7 +3,7 @@ import { all, createRef, useScene, makeProject, Reference } from '@revideo/core'
 import metadata from './metadata.json';
 import './global.css';
 import { createSlideFooter, defaultTextSettings } from './components/SlideFooter';
-import { createSlideHeader, HeaderEffects } from './components/SlideHeader';
+import { createSlideHeader } from './components/SlideHeader';
 import { createSlideBody } from './components/SlideBody';
 import { ImageAnimationConfig, executeImageAnimations } from './animations/imageAnimations';
 import { JinImage } from './components/JinImage';
@@ -165,7 +165,12 @@ const scene = makeScene2D('scene', function* (view) {
   const header = createSlideHeader({
     header: "아나셀 탈모 솔루션",
     view,
-    ...HeaderEffects.createInfiniteTypewriter(audioDuration) // 오디오 길이와 동일하게 설정
+    effect: "typewriter",  //효과 타입 직접 사용
+    effectConfig: {
+      duration: audioDuration,
+      textColor: "#FF0000",
+      strokeColor: "#000000"
+    }
   });
 
   // 슬라이드 바디 생성
