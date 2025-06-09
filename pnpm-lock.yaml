@@ -20,6 +20,9 @@ importers:
       '@revideo/renderer':
         specifier: 0.10.4
         version: 0.10.4(@types/node@22.15.30)(typescript@5.5.4)
+      axios:
+        specifier: ^1.9.0
+        version: 1.9.0
       dotenv:
         specifier: ^16.5.0
         version: 16.5.0
