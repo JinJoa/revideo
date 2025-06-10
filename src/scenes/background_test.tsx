@@ -168,7 +168,7 @@ export default makeScene2D('SlideShow', function* (view) {
 
   // 헤더 생성 (무한 반복 타이핑 효과 적용)
   const header = createSlideHeader({
-    header: "테스트중",
+    header: "탈모 해결책",
     view,
     effect: "typewriter",  //효과 타입 직접 사용
     effectConfig: {

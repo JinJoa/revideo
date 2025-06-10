@@ -1,10 +1,10 @@
 import { View2D } from '@revideo/2d';
 import { createRef } from '@revideo/core';
-import { JinText } from './JinText';
-import {
+import { 
+  JinText,
   HeaderEffectType,
   HeaderEffectConfig
-} from '../animations/headerEffect';
+} from './JinText';
 
 interface SlideHeaderProps {
   header: string;
