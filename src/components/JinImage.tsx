@@ -212,12 +212,14 @@ export class JinImage extends Node {
   @signal()
   public declare readonly maxBlur: SimpleSignal<number, this>
 
+  // 계산된 너비 (시그널로 관리)
+  @initial(700)
+  @signal()
+  public declare readonly calculatedWidth: SimpleSignal<number, this>
+
   // 내부 요소 참조
   private imageRef: Reference<Img> = createRef<Img>()
   private backgroundRef: Reference<Rect> = createRef<Rect>()
-  
-  // 계산된 너비 (일반 변수로 관리)
-  private calculatedWidthValue = 800
   
   // 내부 상태
   private isAnimating = false
@@ -225,40 +227,47 @@ export class JinImage extends Node {
   public constructor(props?: JinImageProps) {
     super({
       // 기본 설정
-      position: [0, -50],
       ...props,
     })
 
-    // calculatedWidthValue 초기화
+    // calculatedWidth 초기화
     if (props?.width && !this.maintainAspectRatio()) {
-      this.calculatedWidthValue = props.width as number
+      this.calculatedWidth(props.width as number)
     }
 
-    // 배경 요소 추가 (배경 투명도가 0보다 클 때만 표시)
+    // 컨테이너 레이아웃 추가 (중앙 정렬을 위한 컨테이너)
     this.add(
       <Rect
-        ref={this.backgroundRef}
-        fill={() => this.backgroundColor()}
-        opacity={() => this.backgroundOpacity()}
-        radius={() => this.backgroundRadius()}
-        width={() => this.getDisplayWidth() + this.padding() * 2}
-        height={() => this.height() + this.padding() * 2}
+        fill="#00000000"
+        width={() => this.width()}
+        height={() => this.height()}
         layout
         justifyContent={'center'}
         alignItems={'center'}
-      />
-    )
+        x={0}
+        y={0}
+      >
+        {/* 배경 요소 추가 (배경 투명도가 0보다 클 때만 표시) */}
+        <Rect
+          ref={this.backgroundRef}
+          fill={() => this.backgroundColor()}
+          opacity={() => this.backgroundOpacity()}
+          radius={() => this.backgroundRadius()}
+          width={() => this.getDisplayWidth() + this.padding() * 2}
+          height={() => this.height() + this.padding() * 2}
+          x={0}
+          y={0}
+        />
 
-    // 이미지 요소 추가 (중앙 정렬)
-    this.add(
-      <Img
-        ref={this.imageRef}
-        src={() => this.src()}
-        size={() => [this.getDisplayWidth(), this.height()]}
-        layout
-        justifyContent={'center'}
-        alignItems={'center'}
-      />
+        {/* 이미지 요소 추가 (중앙 정렬) */}
+        <Img
+          ref={this.imageRef}
+          src={() => this.src()}
+          size={() => [this.getDisplayWidth(), this.height()]}
+          x={0}
+          y={0}
+        />
+      </Rect>
     )
 
     // 이미지 소스 설정
@@ -284,28 +293,31 @@ export class JinImage extends Node {
    */
   private getDisplayWidth(): number {
     if (!this.maintainAspectRatio()) {
-      return this.calculatedWidthValue
+      return this.calculatedWidth()
     }
 
     try {
       const imageElement = this.imageRef()
       if (!imageElement) {
-        return this.calculatedWidthValue
+        return this.calculatedWidth()
       }
 
       const naturalSize = imageElement.naturalSize()
       if (naturalSize.width === 0 || naturalSize.height === 0) {
-        return this.calculatedWidthValue
+        return this.calculatedWidth()
       }
 
       // 원본 비율을 계산하여 너비 결정
       const aspectRatio = naturalSize.width / naturalSize.height
       const calculatedWidth = this.height() * aspectRatio
       
-      this.calculatedWidthValue = calculatedWidth
-      return calculatedWidth
+      // 계산된 너비가 설정된 너비보다 크면 설정된 너비로 제한
+      const finalWidth = Math.min(calculatedWidth, this.width())
+      
+      this.calculatedWidth(finalWidth)
+      return finalWidth
     } catch (error) {
-      return this.calculatedWidthValue
+      return this.calculatedWidth()
     }
   }
 
@@ -314,7 +326,7 @@ export class JinImage extends Node {
    */
   public setWidth(width: number): void {
     this.maintainAspectRatio(false)
-    this.calculatedWidthValue = width
+    this.calculatedWidth(width)
   }
 
   /**
@@ -854,7 +866,7 @@ export class JinImage extends Node {
     const animDuration = duration ?? 0.5
     
     this.maintainAspectRatio(false)
-    this.calculatedWidthValue = newWidth
+    this.calculatedWidth(newWidth)
     yield* this.height(newHeight, animDuration, easeInOutQuad)
   }
 
@@ -1191,4 +1203,4 @@ export function* applyShutterTransition(
   
   topShutter.remove()
   bottomShutter.remove()
-} 
+}

@@ -4,7 +4,7 @@ import metadata from '../metadata.json';
 import '../global.css';
 import { createSlideFooter, defaultTextSettings } from '../components/SlideFooter';
 import { createSlideHeader } from '../components/SlideHeader';
-import { createSlideBody } from '../components/SlideBody';
+import { SlideBody } from '../components/SlideBody';
 import { ImageAnimationConfig } from '../components/JinImage';
 import { LineEffect } from '../background/LineEffect';
 import { ParticleEffect } from '../background/ParticleEffect';
@@ -104,13 +104,6 @@ export default makeScene2D('SlideShow', function* (view) {
   // 배경 및 레이아웃 추가
   yield view.add(
     <>
-      {/* 배경 색상 */}
-      {/* <Rect 
-        width={"100%"}
-        height={"100%"}
-        fill="#000000"
-      /> */}
-
       {/* 메인 레이아웃 */}
       <Layout
         layout
@@ -175,7 +168,7 @@ export default makeScene2D('SlideShow', function* (view) {
 
   // 헤더 생성 (무한 반복 타이핑 효과 적용)
   const header = createSlideHeader({
-    header: "아나셀 탈모 솔루션",
+    header: "테스트중",
     view,
     effect: "typewriter",  //효과 타입 직접 사용
     effectConfig: {
@@ -185,12 +178,16 @@ export default makeScene2D('SlideShow', function* (view) {
     }
   });
 
-  // 슬라이드 바디 생성
-  const slideBody = createSlideBody({
-    slides,
-    view,
-    imageContainer
-  });
+  // 슬라이드 바디 생성 (클래스 기반 컴포넌트 사용)
+  const slideBodyRef = createRef<SlideBody>();
+  view.add(
+    <SlideBody
+      ref={slideBodyRef}
+      slides={slides}
+      view={view}
+      imageContainer={imageContainer}
+    />
+  );
 
   // 슬라이드 푸터 생성
   const slideFooter = createSlideFooter({
@@ -202,7 +199,7 @@ export default makeScene2D('SlideShow', function* (view) {
   // 헤더, 이미지, 텍스트 모두 동시에 표시하고 정확히 오디오 길이만큼 실행
   yield* all(
     header.showHeader(), // 무한 반복 타이핑 효과
-    slideBody.playSlides(),
+    slideBodyRef().playSlides(),
     slideFooter.playFooter(),
     lineEffectRef().radialBurst(audioDuration), // 라인 효과 활성화
     particleEffectRef().explosion(audioDuration * 0.3) // 파티클 효과 활성화
