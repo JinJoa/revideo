@@ -4,7 +4,7 @@ import {
   JinText,
   HeaderEffectType,
   HeaderEffectConfig
-} from './JinText';
+} from '../components/JinText';
 
 interface SlideHeaderProps {
   header: string;

@@ -2,9 +2,9 @@ import { Audio, makeScene2D, Layout, Rect, Txt } from '@revideo/2d';
 import { all, createRef, useScene, makeProject, Reference } from '@revideo/core';
 import metadata from '../metadata.json';
 import '../global.css';
-import { createSlideFooter, defaultTextSettings } from '../components/SlideFooter';
-import { createSlideHeader } from '../components/SlideHeader';
-import { createSlideBody } from '../components/SlideBody';
+import { createSlideFooter, defaultTextSettings } from '../layout/SlideFooter';
+import { createSlideHeader } from '../layout/SlideHeader';
+import { createSlideBody } from '../layout/SlideBody';
 import { ImageAnimationConfig } from '../components/JinImage';
 
 

@@ -2,11 +2,10 @@ import { Audio, makeScene2D, Layout, Rect, Txt } from '@revideo/2d';
 import { all, createRef, useScene, makeProject, Reference } from '@revideo/core';
 import metadata from './metadata.json';
 import './global.css';
-import { createSlideFooter, defaultTextSettings } from './components/SlideFooter';
-import { createSlideHeader } from './components/SlideHeader';
-import { createSlideBody } from './components/SlideBody';
+import { createSlideFooter, defaultTextSettings } from './layout/SlideFooter';
+import { createSlideHeader } from './layout/SlideHeader';
+import { createSlideBody } from './layout/SlideBody';
 import { ImageAnimationConfig, executeImageAnimations } from './components/JinImage';
-import { JinImage } from './components/JinImage';
 
 
 // 랜덤 애니메이션 설정 생성 함수 (주석처리)

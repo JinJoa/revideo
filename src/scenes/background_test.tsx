@@ -2,9 +2,9 @@ import { Audio, makeScene2D, Layout, Rect, Txt } from '@revideo/2d';
 import { all, createRef, useScene, makeProject, Reference } from '@revideo/core';
 import metadata from '../metadata.json';
 import '../global.css';
-import { createSlideFooter, defaultTextSettings } from '../components/SlideFooter';
-import { createSlideHeader } from '../components/SlideHeader';
-import { SlideBody } from '../components/SlideBody';
+import { createSlideFooter, defaultTextSettings } from '../layout/SlideFooter';
+import { createSlideHeader } from '../layout/SlideHeader';
+import { SlideBody } from '../layout/SlideBody';
 import { ImageAnimationConfig } from '../components/JinImage';
 import { LineEffect } from '../background/LineEffect';
 import { ParticleEffect } from '../background/ParticleEffect';
@@ -161,6 +161,18 @@ export default makeScene2D('SlideShow', function* (view) {
       <Audio
         src={audioUrl}
         play={true}
+      />
+            {/* 배경음악 */}
+      {/* <Audio
+        src="/audio/background_music.mp3"
+        play={true}
+        volume={0.3}
+        loop={true}
+      /> */}
+      <Audio
+        src={"https://revideo-example-assets.s3.amazonaws.com/chill-beat-2.mp3"}
+        play={true}
+        volume={0.1}
       />
     </>
   );

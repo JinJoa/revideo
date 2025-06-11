@@ -3,7 +3,7 @@ import { createRef, waitFor, all, Reference, ThreadGenerator } from '@revideo/co
 
 // executeImageAnimations는 이제 JinImage에서 직접 사용
 import { StructuredSlide } from '../types/slide'
-import { JinImage, JinImageProps, ImageAnimationConfig } from './JinImage'
+import { JinImage, JinImageProps, ImageAnimationConfig } from '../components/JinImage'
 
 export interface SlideBodyProps extends RectProps {
   slides: StructuredSlide[]

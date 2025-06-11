@@ -311,11 +311,10 @@ export class JinImage extends Node {
       const aspectRatio = naturalSize.width / naturalSize.height
       const calculatedWidth = this.height() * aspectRatio
       
-      // 계산된 너비가 설정된 너비보다 크면 설정된 너비로 제한
-      const finalWidth = Math.min(calculatedWidth, this.width())
-      
-      this.calculatedWidth(finalWidth)
-      return finalWidth
+      // 비율을 유지하기 위해 계산된 너비를 그대로 사용
+      // 제한을 두지 않고 원본 비율을 정확히 유지
+      this.calculatedWidth(calculatedWidth)
+      return calculatedWidth
     } catch (error) {
       return this.calculatedWidth()
     }
