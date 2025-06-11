@@ -13,7 +13,7 @@ export const defaultTextSettings = {
   numSimultaneousWords: 3,
   textColor: "white",
   fontWeight: 800,
-  fontFamily: "Mulish",
+  fontFamily: "KOTRAGothic",
   stream: false,
   textAlign: "center" as "center",
   textBoxWidthInPercent: 90,

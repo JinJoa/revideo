@@ -1,3 +1,142 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* 학교안심 나들이 */
+@font-face {
+  font-family: 'HakgyoansimNadeuri';
+  src: url('/fonts/Hakgyoansim Nadeuri TTF B.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HakgyoansimNadeuri';
+  src: url('/fonts/Hakgyoansim Nadeuri TTF L.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* 학교안심 소나기 */
+@font-face {
+  font-family: 'HakgyoansimSonagi';
+  src: url('/fonts/HakgyoansimSonagiR.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 학교안심 지우개 */
+@font-face {
+  font-family: 'HakgyoansimJiugae';
+  src: url('/fonts/HakgyoansimJiugaeR.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 학교안심 알림장 */
+@font-face {
+  font-family: 'HakgyoansimAllimjang';
+  src: url('/fonts/Hakgyoansim Allimjang TTF B.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HakgyoansimAllimjang';
+  src: url('/fonts/Hakgyoansim Allimjang TTF R.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 학교안심 그림일기 */
+@font-face {
+  font-family: 'HakgyoansimGeurimilgi';
+  src: url('/fonts/Hakgyoansim Geurimilgi TTF R.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 배달의 민족 을지로체 */
+@font-face {
+  font-family: 'BMEuljiro';
+  src: url('/fonts/BMEULJIRO.otf') format('opentype'),
+       url('/fonts/BMEULJIROTTF.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 야놀자 야체 */
+@font-face {
+  font-family: 'Yanolja';
+  src: url('/fonts/야놀자 야체 Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Yanolja';
+  src: url('/fonts/야놀자 야체 Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 속초바다 돋움 */
+@font-face {
+  font-family: 'SokchoBadaDotum';
+  src: url('/fonts/SokchoBadaDotum.otf') format('opentype'),
+       url('/fonts/SokchoBadaDotum.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 소요단풍체 */
+@font-face {
+  font-family: 'SOYOMaple';
+  src: url('/fonts/SOYO Maple Bold.otf') format('opentype'),
+       url('/fonts/SOYO Maple Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SOYOMaple';
+  src: url('/fonts/SOYO Maple Regular.otf') format('opentype'),
+       url('/fonts/SOYO Maple Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 감탄로드 감탄체 */
+@font-face {
+  font-family: 'GamtanRoad';
+  src: url('/fonts/감탄로드감탄체.otf') format('opentype'),
+       url('/fonts/감탄로드감탄체.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 김해가야체 */
+@font-face {
+  font-family: 'GimhaeGaya';
+  src: url('/fonts/GimhaeGayaB.otf') format('opentype'),
+       url('/fonts/GimhaeGayaB.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GimhaeGaya';
+  src: url('/fonts/GimhaeGayaR.otf') format('opentype'),
+       url('/fonts/GimhaeGayaR.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 코트라 고딕체 */
+@font-face {
+  font-family: 'KOTRAGothic';
+  src: url('/fonts/KOTRA_GOTHIC.otf') format('opentype'),
+       url('/fonts/KOTRA_GOTHIC.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

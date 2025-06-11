@@ -139,7 +139,7 @@ export class JinText extends Node {
         ref={this.headerRef}
         text={this.text}
         fill={this.textColor}
-        fontFamily="Arial"
+        fontFamily="HakgyoansimNadeuri"
         fontSize={this.textSize}
         fontWeight={this.textWeight}
         opacity={1}
@@ -709,4 +709,4 @@ export class JinText extends Node {
     this.cleanup();
     super.dispose();
   }
-} 
+}
