@@ -29,6 +29,9 @@ importers:
       openai:
         specifier: ^4.102.0
         version: 4.104.0(ws@8.18.2)(zod@3.23.8)
+      uuid:
+        specifier: ^11.1.0
+        version: 11.1.0
     devDependencies:
       '@revideo/cli':
         specifier: 0.10.4
@@ -1304,6 +1307,10 @@ packages:
 
   uuid@10.0.0:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
+
+  uuid@11.1.0:
+    resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
     hasBin: true
 
   uuid@9.0.1:
@@ -2770,6 +2777,8 @@ snapshots:
   utils-merge@1.0.1: {}
 
   uuid@10.0.0: {}
+
+  uuid@11.1.0: {}
 
   uuid@9.0.1: {}
 
