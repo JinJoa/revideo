@@ -1,0 +1,792 @@
+{
+  "audioUrl": "audio/d79a8387-d3f9-4ad2-83ca-3f817c014c39-audio.wav",
+  "images": [
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_1.png",
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_2.png",
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_3.png",
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_4.png",
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_5.png",
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_6.png",
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_7.png",
+    "/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_8.png"
+  ],
+  "words": [
+    {
+      "word": "이걸",
+      "start": 0.16,
+      "end": 0.39999998,
+      "confidence": 0.9790039,
+      "punctuated_word": "이걸"
+    },
+    {
+      "word": "알고",
+      "start": 0.39999998,
+      "end": 0.9,
+      "confidence": 1,
+      "punctuated_word": "알고"
+    },
+    {
+      "word": "있었나요",
+      "start": 1.16,
+      "end": 1.66,
+      "confidence": 0.6591797,
+      "punctuated_word": "있었나요?"
+    },
+    {
+      "word": "간헐적",
+      "start": 1.92,
+      "end": 2.24,
+      "confidence": 0.9951172,
+      "punctuated_word": "간헐적"
+    },
+    {
+      "word": "단식이",
+      "start": 2.24,
+      "end": 2.72,
+      "confidence": 0.99658203,
+      "punctuated_word": "단식이"
+    },
+    {
+      "word": "건강에",
+      "start": 2.72,
+      "end": 3.1999998,
+      "confidence": 0.9980469,
+      "punctuated_word": "건강에"
+    },
+    {
+      "word": "놀라운",
+      "start": 3.1999998,
+      "end": 3.6799998,
+      "confidence": 0.99609375,
+      "punctuated_word": "놀라운"
+    },
+    {
+      "word": "혜택을",
+      "start": 3.6799998,
+      "end": 4.16,
+      "confidence": 0.9614258,
+      "punctuated_word": "혜택을"
+    },
+    {
+      "word": "줄",
+      "start": 4.16,
+      "end": 4.24,
+      "confidence": 1,
+      "punctuated_word": "줄"
+    },
+    {
+      "word": "수",
+      "start": 4.24,
+      "end": 4.48,
+      "confidence": 0.9970703,
+      "punctuated_word": "수"
+    },
+    {
+      "word": "있다는",
+      "start": 4.48,
+      "end": 4.7999997,
+      "confidence": 1,
+      "punctuated_word": "있다는"
+    },
+    {
+      "word": "사실을요",
+      "start": 4.7999997,
+      "end": 5.2999997,
+      "confidence": 0.95654297,
+      "punctuated_word": "사실을요."
+    },
+    {
+      "word": "간헐적",
+      "start": 6.16,
+      "end": 6.66,
+      "confidence": 1,
+      "punctuated_word": "간헐적"
+    },
+    {
+      "word": "단식이란",
+      "start": 6.72,
+      "end": 7.22,
+      "confidence": 0.98339844,
+      "punctuated_word": "단식이란"
+    },
+    {
+      "word": "일정",
+      "start": 7.52,
+      "end": 7.8399997,
+      "confidence": 0.9970703,
+      "punctuated_word": "일정"
+    },
+    {
+      "word": "시간",
+      "start": 7.8399997,
+      "end": 8.08,
+      "confidence": 0.5722656,
+      "punctuated_word": "시간"
+    },
+    {
+      "word": "동안",
+      "start": 8.08,
+      "end": 8.48,
+      "confidence": 0.9980469,
+      "punctuated_word": "동안"
+    },
+    {
+      "word": "음식",
+      "start": 8.48,
+      "end": 8.72,
+      "confidence": 0.9980469,
+      "punctuated_word": "음식"
+    },
+    {
+      "word": "섭취를",
+      "start": 8.72,
+      "end": 9.2,
+      "confidence": 0.98291016,
+      "punctuated_word": "섭취를"
+    },
+    {
+      "word": "제한하는",
+      "start": 9.2,
+      "end": 9.599999,
+      "confidence": 0.9316406,
+      "punctuated_word": "제한하는"
+    },
+    {
+      "word": "식습관을",
+      "start": 9.599999,
+      "end": 10.099999,
+      "confidence": 0.98657227,
+      "punctuated_word": "식습관을"
+    },
+    {
+      "word": "말하는데요",
+      "start": 10.16,
+      "end": 10.66,
+      "confidence": 0.85668945,
+      "punctuated_word": "말하는데요."
+    },
+    {
+      "word": "여러분이",
+      "start": 11.28,
+      "end": 11.78,
+      "confidence": 0.98291016,
+      "punctuated_word": "여러분이"
+    },
+    {
+      "word": "가장",
+      "start": 11.84,
+      "end": 12.08,
+      "confidence": 0.9980469,
+      "punctuated_word": "가장"
+    },
+    {
+      "word": "자주",
+      "start": 12.08,
+      "end": 12.32,
+      "confidence": 1,
+      "punctuated_word": "자주"
+    },
+    {
+      "word": "듣는",
+      "start": 12.32,
+      "end": 12.559999,
+      "confidence": 0.99902344,
+      "punctuated_word": "듣는"
+    },
+    {
+      "word": "16/8",
+      "start": 12.559999,
+      "end": 13.2,
+      "confidence": 0.7758789,
+      "punctuated_word": "16/8"
+    },
+    {
+      "word": "방식은",
+      "start": 13.2,
+      "end": 13.7,
+      "confidence": 0.8183594,
+      "punctuated_word": "방식은"
+    },
+    {
+      "word": "하루",
+      "start": 13.84,
+      "end": 13.965,
+      "confidence": 0.60009766,
+      "punctuated_word": "하루"
+    },
+    {
+      "word": "중",
+      "start": 14.205,
+      "end": 14.365,
+      "confidence": 1,
+      "punctuated_word": "중"
+    },
+    {
+      "word": "열",
+      "start": 14.365,
+      "end": 14.645,
+      "confidence": 0.99609375,
+      "punctuated_word": "열"
+    },
+    {
+      "word": "여섯",
+      "start": 14.645,
+      "end": 14.925,
+      "confidence": 0.9902344,
+      "punctuated_word": "여섯"
+    },
+    {
+      "word": "시간",
+      "start": 14.925,
+      "end": 15.165,
+      "confidence": 0.9633789,
+      "punctuated_word": "시간"
+    },
+    {
+      "word": "동안은",
+      "start": 15.165,
+      "end": 15.485001,
+      "confidence": 0.9819336,
+      "punctuated_word": "동안은"
+    },
+    {
+      "word": "금식하고",
+      "start": 15.485001,
+      "end": 15.985001,
+      "confidence": 0.98291016,
+      "punctuated_word": "금식하고"
+    },
+    {
+      "word": "여덟",
+      "start": 16.765,
+      "end": 16.925,
+      "confidence": 1,
+      "punctuated_word": "여덟"
+    },
+    {
+      "word": "시간",
+      "start": 16.925,
+      "end": 17.165,
+      "confidence": 0.9970703,
+      "punctuated_word": "시간"
+    },
+    {
+      "word": "동안은",
+      "start": 17.165,
+      "end": 17.645,
+      "confidence": 0.9941406,
+      "punctuated_word": "동안은"
+    },
+    {
+      "word": "음식을",
+      "start": 17.645,
+      "end": 18.125,
+      "confidence": 1,
+      "punctuated_word": "음식을"
+    },
+    {
+      "word": "섭취하는",
+      "start": 18.125,
+      "end": 18.605,
+      "confidence": 0.99121094,
+      "punctuated_word": "섭취하는"
+    },
+    {
+      "word": "것을",
+      "start": 18.605,
+      "end": 18.925,
+      "confidence": 0.9921875,
+      "punctuated_word": "것을"
+    },
+    {
+      "word": "의미해요",
+      "start": 18.925,
+      "end": 19.425,
+      "confidence": 0.9951172,
+      "punctuated_word": "의미해요."
+    },
+    {
+      "word": "그런데",
+      "start": 20.045,
+      "end": 20.545,
+      "confidence": 0.9970703,
+      "punctuated_word": "그런데"
+    },
+    {
+      "word": "왜",
+      "start": 20.845,
+      "end": 21.085,
+      "confidence": 0.9970703,
+      "punctuated_word": "왜"
+    },
+    {
+      "word": "사람들이",
+      "start": 21.085,
+      "end": 21.485,
+      "confidence": 0.99902344,
+      "punctuated_word": "사람들이"
+    },
+    {
+      "word": "간헐적",
+      "start": 21.485,
+      "end": 21.985,
+      "confidence": 1,
+      "punctuated_word": "간헐적"
+    },
+    {
+      "word": "단식에",
+      "start": 22.045,
+      "end": 22.525,
+      "confidence": 0.9824219,
+      "punctuated_word": "단식에"
+    },
+    {
+      "word": "열광하는",
+      "start": 22.525,
+      "end": 22.925,
+      "confidence": 0.93896484,
+      "punctuated_word": "열광하는"
+    },
+    {
+      "word": "걸까요",
+      "start": 22.925,
+      "end": 23.425,
+      "confidence": 0.921875,
+      "punctuated_word": "걸까요?"
+    },
+    {
+      "word": "이",
+      "start": 24.285,
+      "end": 24.525,
+      "confidence": 0.99658203,
+      "punctuated_word": "이"
+    },
+    {
+      "word": "방법은",
+      "start": 24.525,
+      "end": 25.025,
+      "confidence": 1,
+      "punctuated_word": "방법은"
+    },
+    {
+      "word": "단순히",
+      "start": 25.085,
+      "end": 25.485,
+      "confidence": 0.9760742,
+      "punctuated_word": "단순히"
+    },
+    {
+      "word": "체중",
+      "start": 25.485,
+      "end": 25.805,
+      "confidence": 0.82666016,
+      "punctuated_word": "체중"
+    },
+    {
+      "word": "감량에만",
+      "start": 25.805,
+      "end": 26.305,
+      "confidence": 0.99316406,
+      "punctuated_word": "감량에만"
+    },
+    {
+      "word": "효과적이지",
+      "start": 26.365,
+      "end": 26.865,
+      "confidence": 0.9230957,
+      "punctuated_word": "효과적이지"
+    },
+    {
+      "word": "않아요",
+      "start": 27.165,
+      "end": 27.665,
+      "confidence": 0.9921875,
+      "punctuated_word": "않아요."
+    },
+    {
+      "word": "연구에",
+      "start": 28.38,
+      "end": 28.859999,
+      "confidence": 0.5131836,
+      "punctuated_word": "연구에"
+    },
+    {
+      "word": "따르면",
+      "start": 28.859999,
+      "end": 29.02,
+      "confidence": 0.9951172,
+      "punctuated_word": "따르면"
+    },
+    {
+      "word": "이는",
+      "start": 29.02,
+      "end": 29.42,
+      "confidence": 0.9946289,
+      "punctuated_word": "이는"
+    },
+    {
+      "word": "인슐린",
+      "start": 29.42,
+      "end": 29.9,
+      "confidence": 1,
+      "punctuated_word": "인슐린"
+    },
+    {
+      "word": "수치를",
+      "start": 29.9,
+      "end": 30.3,
+      "confidence": 0.9819336,
+      "punctuated_word": "수치를"
+    },
+    {
+      "word": "낮춰",
+      "start": 30.3,
+      "end": 30.8,
+      "confidence": 0.9135742,
+      "punctuated_word": "낮춰"
+    },
+    {
+      "word": "당뇨병",
+      "start": 30.82,
+      "end": 31.32,
+      "confidence": 0.9980469,
+      "punctuated_word": "당뇨병"
+    },
+    {
+      "word": "위험을",
+      "start": 31.34,
+      "end": 31.74,
+      "confidence": 0.99365234,
+      "punctuated_word": "위험을"
+    },
+    {
+      "word": "감소시키고",
+      "start": 31.74,
+      "end": 32.239998,
+      "confidence": 0.97509766,
+      "punctuated_word": "감소시키고"
+    },
+    {
+      "word": "염증을",
+      "start": 32.78,
+      "end": 33.26,
+      "confidence": 0.9995117,
+      "punctuated_word": "염증을"
+    },
+    {
+      "word": "줄이며",
+      "start": 33.26,
+      "end": 33.76,
+      "confidence": 0.9916992,
+      "punctuated_word": "줄이며"
+    },
+    {
+      "word": "심지어는",
+      "start": 34.22,
+      "end": 34.72,
+      "confidence": 0.99609375,
+      "punctuated_word": "심지어는"
+    },
+    {
+      "word": "심장",
+      "start": 35.26,
+      "end": 35.739998,
+      "confidence": 0.99609375,
+      "punctuated_word": "심장"
+    },
+    {
+      "word": "건강도",
+      "start": 35.739998,
+      "end": 36.14,
+      "confidence": 0.9904785,
+      "punctuated_word": "건강도"
+    },
+    {
+      "word": "개선시킨다는",
+      "start": 36.14,
+      "end": 36.64,
+      "confidence": 0.80029297,
+      "punctuated_word": "개선시킨다는"
+    },
+    {
+      "word": "사실",
+      "start": 37.02,
+      "end": 37.52,
+      "confidence": 0.82666016,
+      "punctuated_word": "사실."
+    },
+    {
+      "word": "또한",
+      "start": 38.54,
+      "end": 39.04,
+      "confidence": 0.98828125,
+      "punctuated_word": "또한"
+    },
+    {
+      "word": "뇌",
+      "start": 39.18,
+      "end": 39.42,
+      "confidence": 0.9980469,
+      "punctuated_word": "뇌"
+    },
+    {
+      "word": "기능을",
+      "start": 39.42,
+      "end": 39.92,
+      "confidence": 0.8354492,
+      "punctuated_word": "기능을"
+    },
+    {
+      "word": "향상시키고",
+      "start": 40.3,
+      "end": 40.699997,
+      "confidence": 0.8874512,
+      "punctuated_word": "향상시키고"
+    },
+    {
+      "word": "노화",
+      "start": 40.699997,
+      "end": 41.1,
+      "confidence": 1,
+      "punctuated_word": "노화"
+    },
+    {
+      "word": "과정을",
+      "start": 41.1,
+      "end": 41.5,
+      "confidence": 0.8305664,
+      "punctuated_word": "과정을"
+    },
+    {
+      "word": "늦출",
+      "start": 41.5,
+      "end": 41.82,
+      "confidence": 0.9921875,
+      "punctuated_word": "늦출"
+    },
+    {
+      "word": "수도",
+      "start": 41.82,
+      "end": 42.14,
+      "confidence": 0.9716797,
+      "punctuated_word": "수도"
+    },
+    {
+      "word": "있다고",
+      "start": 42.14,
+      "end": 42.46,
+      "confidence": 0.9970703,
+      "punctuated_word": "있다고"
+    },
+    {
+      "word": "하니",
+      "start": 42.46,
+      "end": 42.96,
+      "confidence": 0.9941406,
+      "punctuated_word": "하니"
+    },
+    {
+      "word": "매력적이죠",
+      "start": 45.225,
+      "end": 45.385,
+      "confidence": 0.6711426,
+      "punctuated_word": "매력적이죠."
+    },
+    {
+      "word": "하지만",
+      "start": 45.385,
+      "end": 45.885,
+      "confidence": 0.9980469,
+      "punctuated_word": "하지만"
+    },
+    {
+      "word": "간헐적",
+      "start": 46.105,
+      "end": 46.265,
+      "confidence": 1,
+      "punctuated_word": "간헐적"
+    },
+    {
+      "word": "단식이",
+      "start": 46.265,
+      "end": 46.745,
+      "confidence": 0.99609375,
+      "punctuated_word": "단식이"
+    },
+    {
+      "word": "모든",
+      "start": 46.745,
+      "end": 46.984997,
+      "confidence": 1,
+      "punctuated_word": "모든"
+    },
+    {
+      "word": "사람에게",
+      "start": 46.984997,
+      "end": 47.465,
+      "confidence": 0.9941406,
+      "punctuated_word": "사람에게"
+    },
+    {
+      "word": "적합한",
+      "start": 47.465,
+      "end": 47.864998,
+      "confidence": 0.9951172,
+      "punctuated_word": "적합한"
+    },
+    {
+      "word": "것은",
+      "start": 47.864998,
+      "end": 48.184998,
+      "confidence": 0.99316406,
+      "punctuated_word": "것은"
+    },
+    {
+      "word": "아니에요",
+      "start": 48.184998,
+      "end": 48.684998,
+      "confidence": 0.96240234,
+      "punctuated_word": "아니에요."
+    },
+    {
+      "word": "식습관",
+      "start": 49.545,
+      "end": 50.045,
+      "confidence": 1,
+      "punctuated_word": "식습관"
+    },
+    {
+      "word": "변경",
+      "start": 50.184998,
+      "end": 50.585,
+      "confidence": 0.90771484,
+      "punctuated_word": "변경"
+    },
+    {
+      "word": "전에는",
+      "start": 50.585,
+      "end": 50.984997,
+      "confidence": 0.9863281,
+      "punctuated_word": "전에는"
+    },
+    {
+      "word": "반드시",
+      "start": 50.984997,
+      "end": 51.464996,
+      "confidence": 1,
+      "punctuated_word": "반드시"
+    },
+    {
+      "word": "전문가와",
+      "start": 51.464996,
+      "end": 51.964996,
+      "confidence": 0.9765625,
+      "punctuated_word": "전문가와"
+    },
+    {
+      "word": "상의해야",
+      "start": 52.024998,
+      "end": 52.524998,
+      "confidence": 0.9760742,
+      "punctuated_word": "상의해야"
+    },
+    {
+      "word": "하죠",
+      "start": 52.664997,
+      "end": 53.164997,
+      "confidence": 0.95947266,
+      "punctuated_word": "하죠."
+    },
+    {
+      "word": "하지만",
+      "start": 53.864998,
+      "end": 54.344997,
+      "confidence": 0.9980469,
+      "punctuated_word": "하지만"
+    },
+    {
+      "word": "이렇게",
+      "start": 54.344997,
+      "end": 54.664997,
+      "confidence": 0.99121094,
+      "punctuated_word": "이렇게"
+    },
+    {
+      "word": "여러",
+      "start": 54.664997,
+      "end": 54.905,
+      "confidence": 1,
+      "punctuated_word": "여러"
+    },
+    {
+      "word": "건강상의",
+      "start": 54.905,
+      "end": 55.405,
+      "confidence": 0.9494629,
+      "punctuated_word": "건강상의"
+    },
+    {
+      "word": "이점이",
+      "start": 55.625,
+      "end": 56.024998,
+      "confidence": 0.7480469,
+      "punctuated_word": "이점이"
+    },
+    {
+      "word": "있다니",
+      "start": 56.024998,
+      "end": 56.524998,
+      "confidence": 0.8925781,
+      "punctuated_word": "있다니"
+    },
+    {
+      "word": "한번",
+      "start": 56.585,
+      "end": 56.905,
+      "confidence": 0.93603516,
+      "punctuated_word": "한번"
+    },
+    {
+      "word": "시도해",
+      "start": 56.905,
+      "end": 57.305,
+      "confidence": 0.9970703,
+      "punctuated_word": "시도해"
+    },
+    {
+      "word": "볼",
+      "start": 57.305,
+      "end": 57.545,
+      "confidence": 0.8774414,
+      "punctuated_word": "볼"
+    },
+    {
+      "word": "가치는",
+      "start": 57.545,
+      "end": 57.945,
+      "confidence": 0.99609375,
+      "punctuated_word": "가치는"
+    },
+    {
+      "word": "있어",
+      "start": 57.945,
+      "end": 58.184998,
+      "confidence": 1,
+      "punctuated_word": "있어"
+    },
+    {
+      "word": "보이지",
+      "start": 58.184998,
+      "end": 58.425,
+      "confidence": 0.99121094,
+      "punctuated_word": "보이지"
+    },
+    {
+      "word": "않나요",
+      "start": 58.425,
+      "end": 58.925,
+      "confidence": 0.86572266,
+      "punctuated_word": "않나요?"
+    }
+  ]
+}

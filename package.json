@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@deepgram/sdk": "^4.2.0",
+    "@google-cloud/text-to-speech": "^6.1.0",
     "@revideo/2d": "0.10.4",
     "@revideo/core": "0.10.4",
     "@revideo/renderer": "0.10.4",

@@ -1,0 +1,710 @@
+{
+  "audioUrl": "65232e4f-8218-4cfd-96f9-eada2c02c2d6-audio.wav",
+  "images": [
+    "/images/%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A8%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5.jpg",
+    "/images/%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A8_%E1%84%89%E1%85%A1%E1%86%BC%E1%84%91%E1%85%AD%E1%84%83%E1%85%B3%E1%86%BC%E1%84%85%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%B3%E1%86%BC_CMX_6593213.jpeg",
+    "/images/%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A8_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5_US11752450B2_%E1%84%8E%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AF%E1%84%8C%E1%85%B5%E1%86%AF_%E1%84%89%E1%85%A5%E1%86%AB%E1%84%90%E1%85%A2%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8_%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8.jpeg",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC01.jpg",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%82%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%BC02.jpg",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC01.jpg",
+    "/images/%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%A7%E1%84%89%E1%85%A5%E1%86%BC02.jpg",
+    "/images/%E1%84%89%E1%85%B5%E1%86%A8%E1%84%8B%E1%85%A3%E1%86%A8%E1%84%8E%E1%85%A5_%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%AA%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%91%E1%85%AE%E1%86%B7_%E1%84%87%E1%85%A9%E1%84%80%E1%85%A9.png",
+    "/images/%E1%84%8B%E1%85%B2%E1%84%85%E1%85%A5%E1%86%B8%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%20%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpg",
+    "/images/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A9%E1%86%AB_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%E1%84%8C%E1%85%B3%E1%86%BC_7537763_%E1%84%8E%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AF%E1%84%8C%E1%85%B5%E1%86%AF_%E1%84%89%E1%85%A5%E1%86%AB%E1%84%90%E1%85%A2%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8_%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8.jpeg",
+    "/images/%E1%84%8C%E1%85%AE%E1%86%BC%E1%84%80%E1%85%AE%E1%86%A8_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%E1%84%8C%E1%85%B3%E1%86%BC_ZL2020E0877349.jpeg",
+    "/images/%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%AE%E1%86%A8_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%E1%84%8C%E1%85%B3%E1%86%BC_10-2298839_%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%83%E1%85%A1%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AF%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B4_%E1%84%89%E1%85%A5%E1%86%AB%E1%84%90%E1%85%A2%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8_%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AD%E1%86%BC_%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8.jpeg",
+    "/images/%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%AE%E1%86%A8_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%E1%84%8C%E1%85%B3%E1%86%BC_10-2433111_%E1%84%8C%E1%85%AE%E1%84%85%E1%85%B3%E1%86%B7%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AB_%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%83%E1%85%A1%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AF%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B4_%E1%84%89%E1%85%A5%E1%86%AB%E1%84%90%E1%85%A2%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8_%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AD%E1%86%BC_%E1%84%87%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8.jpeg",
+    "/images/%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%AE%E1%86%A8_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%92%E1%85%A5%E1%84%8C%E1%85%B3%E1%86%BC_10-2598042_%E1%84%8B%E1%85%B2%E1%86%A8%E1%84%86%E1%85%A9%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC_%E1%84%8E%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%B5%E1%86%AB_%E1%84%86%E1%85%AE%E1%86%AF%E1%84%8C%E1%85%B5%E1%86%AF_%E1%84%86%E1%85%B5%E1%86%BE_%E1%84%8E%E1%85%B5%E1%84%85%E1%85%AD%E1%84%8B%E1%85%AD%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%89%E1%85%A5%E1%86%BC%E1%84%86%E1%85%AE%E1%86%AF.jpeg",
+    "/images/anacell_homepage.png",
+    "/images/anacell_logo.png",
+    "/images/cartoon_1.png",
+    "/images/cartoon_2.png",
+    "/images/cartoon_3.png",
+    "/images/cartoon_full.png",
+    "/images/female_image.png",
+    "/images/functional_cosmetics_examination_result.png",
+    "/images/hairloss_mechanism_explanation.png",
+    "/images/human_application_test_results.jpg",
+    "/images/male_image.png",
+    "/images/product_photo.jpg",
+    "/images/technical_explanation_CMX.png",
+    "/images/technical_explanation_DEE.png",
+    "/images/technical_explanation_ME-True.png",
+    "/images/usage_result_female.JPG",
+    "/images/usage_result_male.JPG"
+  ],
+  "words": [
+    {
+      "word": "ever",
+      "start": 0.16,
+      "end": 0.48,
+      "confidence": 0.9976948,
+      "punctuated_word": "Ever"
+    },
+    {
+      "word": "wondered",
+      "start": 0.48,
+      "end": 0.79999995,
+      "confidence": 0.99957675,
+      "punctuated_word": "wondered"
+    },
+    {
+      "word": "why",
+      "start": 0.79999995,
+      "end": 1.04,
+      "confidence": 0.9998765,
+      "punctuated_word": "why"
+    },
+    {
+      "word": "your",
+      "start": 1.04,
+      "end": 1.1999999,
+      "confidence": 0.9989761,
+      "punctuated_word": "your"
+    },
+    {
+      "word": "hairbrush",
+      "start": 1.1999999,
+      "end": 1.6999999,
+      "confidence": 0.93959,
+      "punctuated_word": "hairbrush"
+    },
+    {
+      "word": "gathers",
+      "start": 1.8399999,
+      "end": 2.24,
+      "confidence": 0.9998667,
+      "punctuated_word": "gathers"
+    },
+    {
+      "word": "more",
+      "start": 2.24,
+      "end": 2.56,
+      "confidence": 0.9991615,
+      "punctuated_word": "more"
+    },
+    {
+      "word": "hair",
+      "start": 2.56,
+      "end": 2.8,
+      "confidence": 0.99958855,
+      "punctuated_word": "hair"
+    },
+    {
+      "word": "than",
+      "start": 2.8,
+      "end": 2.96,
+      "confidence": 0.9970703,
+      "punctuated_word": "than"
+    },
+    {
+      "word": "your",
+      "start": 2.96,
+      "end": 3.1999998,
+      "confidence": 0.99934596,
+      "punctuated_word": "your"
+    },
+    {
+      "word": "head",
+      "start": 3.1999998,
+      "end": 3.52,
+      "confidence": 0.99975175,
+      "punctuated_word": "head"
+    },
+    {
+      "word": "retains",
+      "start": 3.52,
+      "end": 4.02,
+      "confidence": 0.9979706,
+      "punctuated_word": "retains?"
+    },
+    {
+      "word": "well",
+      "start": 4.56,
+      "end": 5.06,
+      "confidence": 0.9900874,
+      "punctuated_word": "Well,"
+    },
+    {
+      "word": "hold",
+      "start": 5.12,
+      "end": 5.44,
+      "confidence": 0.99960345,
+      "punctuated_word": "hold"
+    },
+    {
+      "word": "on",
+      "start": 5.44,
+      "end": 5.94,
+      "confidence": 0.7041987,
+      "punctuated_word": "on,"
+    },
+    {
+      "word": "because",
+      "start": 6,
+      "end": 6.3199997,
+      "confidence": 0.9993426,
+      "punctuated_word": "because"
+    },
+    {
+      "word": "we're",
+      "start": 6.3199997,
+      "end": 6.64,
+      "confidence": 0.99758154,
+      "punctuated_word": "we're"
+    },
+    {
+      "word": "about",
+      "start": 6.64,
+      "end": 6.96,
+      "confidence": 0.9998171,
+      "punctuated_word": "about"
+    },
+    {
+      "word": "to",
+      "start": 6.96,
+      "end": 7.2,
+      "confidence": 0.9984717,
+      "punctuated_word": "to"
+    },
+    {
+      "word": "dive",
+      "start": 7.2,
+      "end": 7.52,
+      "confidence": 0.9996214,
+      "punctuated_word": "dive"
+    },
+    {
+      "word": "into",
+      "start": 7.52,
+      "end": 7.7599998,
+      "confidence": 0.9981134,
+      "punctuated_word": "into"
+    },
+    {
+      "word": "a",
+      "start": 7.7599998,
+      "end": 8,
+      "confidence": 0.999726,
+      "punctuated_word": "a"
+    },
+    {
+      "word": "revolutionary",
+      "start": 8,
+      "end": 8.5,
+      "confidence": 0.99992,
+      "punctuated_word": "revolutionary"
+    },
+    {
+      "word": "hair",
+      "start": 8.8,
+      "end": 9.04,
+      "confidence": 0.9996911,
+      "punctuated_word": "hair"
+    },
+    {
+      "word": "loss",
+      "start": 9.04,
+      "end": 9.36,
+      "confidence": 0.9996635,
+      "punctuated_word": "loss"
+    },
+    {
+      "word": "treatment",
+      "start": 9.36,
+      "end": 9.84,
+      "confidence": 0.999861,
+      "punctuated_word": "treatment"
+    },
+    {
+      "word": "that's",
+      "start": 9.84,
+      "end": 10.16,
+      "confidence": 0.99903816,
+      "punctuated_word": "that's"
+    },
+    {
+      "word": "turning",
+      "start": 10.16,
+      "end": 10.639999,
+      "confidence": 0.99981004,
+      "punctuated_word": "turning"
+    },
+    {
+      "word": "heads",
+      "start": 10.639999,
+      "end": 11.139999,
+      "confidence": 0.9997994,
+      "punctuated_word": "heads."
+    },
+    {
+      "word": "imagine",
+      "start": 11.679999,
+      "end": 12.16,
+      "confidence": 0.9985145,
+      "punctuated_word": "Imagine"
+    },
+    {
+      "word": "a",
+      "start": 12.16,
+      "end": 12.24,
+      "confidence": 0.9997732,
+      "punctuated_word": "a"
+    },
+    {
+      "word": "solution",
+      "start": 12.24,
+      "end": 12.74,
+      "confidence": 0.99980193,
+      "punctuated_word": "solution"
+    },
+    {
+      "word": "so",
+      "start": 12.88,
+      "end": 13.2,
+      "confidence": 0.99912137,
+      "punctuated_word": "so"
+    },
+    {
+      "word": "powerful",
+      "start": 13.2,
+      "end": 13.7,
+      "confidence": 0.8662574,
+      "punctuated_word": "powerful,"
+    },
+    {
+      "word": "it",
+      "start": 14.105,
+      "end": 14.264999,
+      "confidence": 0.99924624,
+      "punctuated_word": "it"
+    },
+    {
+      "word": "not",
+      "start": 14.264999,
+      "end": 14.504999,
+      "confidence": 0.99951136,
+      "punctuated_word": "not"
+    },
+    {
+      "word": "only",
+      "start": 14.504999,
+      "end": 14.825,
+      "confidence": 0.99954647,
+      "punctuated_word": "only"
+    },
+    {
+      "word": "stops",
+      "start": 14.825,
+      "end": 15.304999,
+      "confidence": 0.99897975,
+      "punctuated_word": "stops"
+    },
+    {
+      "word": "hair",
+      "start": 15.304999,
+      "end": 15.545,
+      "confidence": 0.9996408,
+      "punctuated_word": "hair"
+    },
+    {
+      "word": "loss",
+      "start": 15.545,
+      "end": 15.865,
+      "confidence": 0.99970573,
+      "punctuated_word": "loss"
+    },
+    {
+      "word": "in",
+      "start": 15.865,
+      "end": 16.025,
+      "confidence": 0.99889,
+      "punctuated_word": "in"
+    },
+    {
+      "word": "its",
+      "start": 16.025,
+      "end": 16.345,
+      "confidence": 0.9898144,
+      "punctuated_word": "its"
+    },
+    {
+      "word": "tracks",
+      "start": 16.345,
+      "end": 16.845,
+      "confidence": 0.90537345,
+      "punctuated_word": "tracks,"
+    },
+    {
+      "word": "but",
+      "start": 16.904999,
+      "end": 17.145,
+      "confidence": 0.99979204,
+      "punctuated_word": "but"
+    },
+    {
+      "word": "also",
+      "start": 17.145,
+      "end": 17.545,
+      "confidence": 0.99873143,
+      "punctuated_word": "also"
+    },
+    {
+      "word": "regenerates",
+      "start": 17.545,
+      "end": 18.045,
+      "confidence": 0.99910486,
+      "punctuated_word": "regenerates"
+    },
+    {
+      "word": "what",
+      "start": 18.265,
+      "end": 18.425,
+      "confidence": 0.9995153,
+      "punctuated_word": "what"
+    },
+    {
+      "word": "was",
+      "start": 18.425,
+      "end": 18.585,
+      "confidence": 0.9993113,
+      "punctuated_word": "was"
+    },
+    {
+      "word": "once",
+      "start": 18.585,
+      "end": 18.985,
+      "confidence": 0.99953043,
+      "punctuated_word": "once"
+    },
+    {
+      "word": "lost",
+      "start": 18.985,
+      "end": 19.485,
+      "confidence": 0.9889431,
+      "punctuated_word": "lost."
+    },
+    {
+      "word": "no",
+      "start": 19.785,
+      "end": 20.105,
+      "confidence": 0.9995289,
+      "punctuated_word": "No"
+    },
+    {
+      "word": "potions",
+      "start": 20.105,
+      "end": 20.605,
+      "confidence": 0.7904046,
+      "punctuated_word": "potions,"
+    },
+    {
+      "word": "no",
+      "start": 20.904999,
+      "end": 21.224998,
+      "confidence": 0.99948275,
+      "punctuated_word": "no"
+    },
+    {
+      "word": "magic",
+      "start": 21.224998,
+      "end": 21.724998,
+      "confidence": 0.9246565,
+      "punctuated_word": "magic,"
+    },
+    {
+      "word": "just",
+      "start": 22.185,
+      "end": 22.664999,
+      "confidence": 0.9994784,
+      "punctuated_word": "just"
+    },
+    {
+      "word": "science",
+      "start": 22.664999,
+      "end": 23.164999,
+      "confidence": 0.9987067,
+      "punctuated_word": "science"
+    },
+    {
+      "word": "unlocking",
+      "start": 23.305,
+      "end": 23.704998,
+      "confidence": 0.99789774,
+      "punctuated_word": "unlocking"
+    },
+    {
+      "word": "the",
+      "start": 23.704998,
+      "end": 23.945,
+      "confidence": 0.99928516,
+      "punctuated_word": "the"
+    },
+    {
+      "word": "secrets",
+      "start": 23.945,
+      "end": 24.425,
+      "confidence": 0.9997776,
+      "punctuated_word": "secrets"
+    },
+    {
+      "word": "of",
+      "start": 24.425,
+      "end": 24.585,
+      "confidence": 0.9998281,
+      "punctuated_word": "of"
+    },
+    {
+      "word": "your",
+      "start": 24.585,
+      "end": 24.825,
+      "confidence": 0.9998271,
+      "punctuated_word": "your"
+    },
+    {
+      "word": "scalp",
+      "start": 24.825,
+      "end": 25.325,
+      "confidence": 0.9997027,
+      "punctuated_word": "scalp."
+    },
+    {
+      "word": "stay",
+      "start": 25.785,
+      "end": 26.105,
+      "confidence": 0.9992144,
+      "punctuated_word": "Stay"
+    },
+    {
+      "word": "tuned",
+      "start": 26.105,
+      "end": 26.505,
+      "confidence": 0.999579,
+      "punctuated_word": "tuned"
+    },
+    {
+      "word": "to",
+      "start": 26.505,
+      "end": 26.664999,
+      "confidence": 0.99486685,
+      "punctuated_word": "to"
+    },
+    {
+      "word": "discover",
+      "start": 26.664999,
+      "end": 27.145,
+      "confidence": 0.99987066,
+      "punctuated_word": "discover"
+    },
+    {
+      "word": "how",
+      "start": 27.145,
+      "end": 27.384998,
+      "confidence": 0.9996855,
+      "punctuated_word": "how"
+    },
+    {
+      "word": "you",
+      "start": 27.384998,
+      "end": 27.544998,
+      "confidence": 0.99984074,
+      "punctuated_word": "you"
+    },
+    {
+      "word": "can",
+      "start": 27.544998,
+      "end": 27.704998,
+      "confidence": 0.9996069,
+      "punctuated_word": "can"
+    },
+    {
+      "word": "say",
+      "start": 27.704998,
+      "end": 27.865,
+      "confidence": 0.9987066,
+      "punctuated_word": "say"
+    },
+    {
+      "word": "goodbye",
+      "start": 27.865,
+      "end": 28.345,
+      "confidence": 0.996302,
+      "punctuated_word": "goodbye"
+    },
+    {
+      "word": "to",
+      "start": 28.345,
+      "end": 28.505,
+      "confidence": 0.9997347,
+      "punctuated_word": "to"
+    },
+    {
+      "word": "hair",
+      "start": 28.505,
+      "end": 28.744999,
+      "confidence": 0.99969923,
+      "punctuated_word": "hair"
+    },
+    {
+      "word": "loss",
+      "start": 28.744999,
+      "end": 29.1,
+      "confidence": 0.99984086,
+      "punctuated_word": "loss"
+    },
+    {
+      "word": "and",
+      "start": 29.34,
+      "end": 29.58,
+      "confidence": 0.99987805,
+      "punctuated_word": "and"
+    },
+    {
+      "word": "hello",
+      "start": 29.58,
+      "end": 29.98,
+      "confidence": 0.99806005,
+      "punctuated_word": "hello"
+    },
+    {
+      "word": "to",
+      "start": 29.98,
+      "end": 30.220001,
+      "confidence": 0.9989458,
+      "punctuated_word": "to"
+    },
+    {
+      "word": "a",
+      "start": 30.220001,
+      "end": 30.460001,
+      "confidence": 0.9997973,
+      "punctuated_word": "a"
+    },
+    {
+      "word": "fuller",
+      "start": 30.460001,
+      "end": 30.960001,
+      "confidence": 0.9299668,
+      "punctuated_word": "fuller,"
+    },
+    {
+      "word": "thicker",
+      "start": 31.1,
+      "end": 31.6,
+      "confidence": 0.99954045,
+      "punctuated_word": "thicker"
+    },
+    {
+      "word": "mane",
+      "start": 31.66,
+      "end": 32.16,
+      "confidence": 0.9964752,
+      "punctuated_word": "mane."
+    },
+    {
+      "word": "ready",
+      "start": 32.7,
+      "end": 33.02,
+      "confidence": 0.99847823,
+      "punctuated_word": "Ready"
+    },
+    {
+      "word": "to",
+      "start": 33.02,
+      "end": 33.260002,
+      "confidence": 0.9998661,
+      "punctuated_word": "to"
+    },
+    {
+      "word": "transform",
+      "start": 33.260002,
+      "end": 33.74,
+      "confidence": 0.99991465,
+      "punctuated_word": "transform"
+    },
+    {
+      "word": "your",
+      "start": 33.74,
+      "end": 33.98,
+      "confidence": 0.999718,
+      "punctuated_word": "your"
+    },
+    {
+      "word": "locks",
+      "start": 33.98,
+      "end": 34.3,
+      "confidence": 0.9771746,
+      "punctuated_word": "locks"
+    },
+    {
+      "word": "and",
+      "start": 34.3,
+      "end": 34.54,
+      "confidence": 0.527983,
+      "punctuated_word": "and"
+    },
+    {
+      "word": "confidence",
+      "start": 34.54,
+      "end": 35.04,
+      "confidence": 0.95953834,
+      "punctuated_word": "confidence?"
+    },
+    {
+      "word": "let's",
+      "start": 35.260002,
+      "end": 35.58,
+      "confidence": 0.99959064,
+      "punctuated_word": "Let's"
+    },
+    {
+      "word": "embark",
+      "start": 35.58,
+      "end": 35.98,
+      "confidence": 0.99933773,
+      "punctuated_word": "embark"
+    },
+    {
+      "word": "on",
+      "start": 35.98,
+      "end": 36.14,
+      "confidence": 0.99969375,
+      "punctuated_word": "on"
+    },
+    {
+      "word": "this",
+      "start": 36.14,
+      "end": 36.38,
+      "confidence": 0.9997062,
+      "punctuated_word": "this"
+    },
+    {
+      "word": "follicle",
+      "start": 36.38,
+      "end": 36.88,
+      "confidence": 0.9967586,
+      "punctuated_word": "follicle"
+    },
+    {
+      "word": "reviving",
+      "start": 36.94,
+      "end": 37.42,
+      "confidence": 0.99909306,
+      "punctuated_word": "reviving"
+    },
+    {
+      "word": "journey",
+      "start": 37.42,
+      "end": 37.9,
+      "confidence": 0.9998497,
+      "punctuated_word": "journey"
+    },
+    {
+      "word": "together",
+      "start": 37.9,
+      "end": 38.4,
+      "confidence": 0.99896115,
+      "punctuated_word": "together."
+    }
+  ]
+}

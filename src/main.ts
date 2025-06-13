@@ -2,10 +2,11 @@ import {makeProject} from '@revideo/core';
 import FirstScene from './scenes/first';
 import SecondScene from './scenes/second';
 import SlideShow from './scenes/background_test';
+import IntermittentFasting from './scenes/intermittent_fasting';
 
 export default makeProject({
   name: 'revideo_test',
-  scenes: [SlideShow],
+  scenes: [IntermittentFasting],
   variables: {
     text: 'Hello Revideo!',
   },

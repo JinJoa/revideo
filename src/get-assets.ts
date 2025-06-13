@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 // import { getVideoScript, generateAudio, getWordTimestamps } from './render';
-import { getVideoScript, generateAudio, getWordTimestamps, getImagePromptFromScript, dalleGenerate } from './utils';
+import { getVideoScript, generateKoreanAudio, getWordTimestamps, getImagePromptFromScript, dalleGenerate } from './utils';
 import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -29,66 +29,79 @@ async function createAssets(topic: string, voiceName: string){
     await fs.promises.mkdir('./public/metadata', { recursive: true });
 
     const audioPath = `./public/audio/${jobId}-audio.wav`;
-    await generateAudio(script, voiceName, audioPath);
+    //await generateAudio(script, voiceName, audioPath);
+    await generateKoreanAudio(script, voiceName, audioPath);
     const words = await getWordTimestamps(audioPath);
 
     console.log("Generating images based on script...")
     console.log("script", script);
     console.log("words", words);
 
-    // Create job-specific image directory
-    const jobImageDir = `./public/images/${jobId}`;
-    await fs.promises.mkdir(jobImageDir, { recursive: true });
+    // // Create job-specific image directory
+    // const jobImageDir = `./public/images/${jobId}`;
+    // await fs.promises.mkdir(jobImageDir, { recursive: true });
 
-    // Generate image prompt from script
-    const imagePrompt = await getImagePromptFromScript(script);
-    console.log("Generated image prompt:", imagePrompt);
+    // // Generate image prompt from script
+    // const imagePrompt = await getImagePromptFromScript(script);
+    // console.log("Generated image prompt:", imagePrompt);
 
-    // Generate multiple images for the video (3-5 images)
-    const numberOfImages = 4; // Change this number to generate more images
+    // // Generate multiple images for the video (3-5 images)
+    // const numberOfImages = 4; // Change this number to generate more images
     let imageFiles: string[] = [];
     
-    try {
-        for (let i = 0; i < numberOfImages; i++) {
-            const imagePath = `${jobImageDir}/image_${i + 1}.png`;
-            const imageUrl = `/images/${jobId}/image_${i + 1}.png`;
+    // Temporarily commented out image generation - using fallback images
+    imageFiles = [
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_1.png',
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_2.png',
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_3.png',
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_4.png',
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_5.png',
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_6.png',
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_7.png',
+        '/images/d79a8387-d3f9-4ad2-83ca-3f817c014c39/image_8.png',
+    ];
+    
+    // try {
+    //     for (let i = 0; i < numberOfImages; i++) {
+    //         const imagePath = `${jobImageDir}/image_${i + 1}.png`;
+    //         const imageUrl = `/images/${jobId}/image_${i + 1}.png`;
             
-            console.log(`Generating image ${i + 1}/${numberOfImages}...`);
-            await dalleGenerate(imagePrompt, imagePath);
-            imageFiles.push(imageUrl);
-        }
+    //         console.log(`Generating image ${i + 1}/${numberOfImages}...`);
+    //         await dalleGenerate(imagePrompt, imagePath);
+    //         imageFiles.push(imageUrl);
+    //     }
         
-        console.log(`Generated ${imageFiles.length} images:`, imageFiles);
-    } catch (error) {
-        console.error('Error generating images:', error);
-        // Fallback to existing images if generation fails
-        console.log("Falling back to existing images...");
-        const imagesDir = './public/images';
-        const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'];
+    //     console.log(`Generated ${imageFiles.length} images:`, imageFiles);
+    // } catch (error) {
+    //     console.error('Error generating images:', error);
+    //     // Fallback to existing images if generation fails
+    //     console.log("Falling back to existing images...");
+    //     const imagesDir = './public/images';
+    //     const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'];
         
-        // try {
-        //     const files = await fs.promises.readdir(imagesDir);
-        //     imageFiles = files
-        //         .filter(file => imageExtensions.includes(path.extname(file).toLowerCase()))
-        //         .filter(file => {
-        //             const lowerFile = file.toLowerCase();
-        //             return !lowerFile.includes('특허') &&
-        //                    !lowerFile.includes('patent') &&
-        //                    !lowerFile.includes('상표등록');
-        //         })
-        //         .map(file => `/images/${encodeURIComponent(file)}`)
-        //         .sort()
-        //         .slice(0, numberOfImages); // Limit to same number of images
-        // } catch (fallbackError) {
-        //     console.error('Error reading fallback images:', fallbackError);
-        //     imageFiles = [
-        //         '/images/cartoon_1.png',
-        //         '/images/cartoon_2.png',
-        //         '/images/cartoon_3.png',
-        //         '/images/cartoon_4.png'
-        //     ];
-        // }
-    }
+    //     // try {
+    //     //     const files = await fs.promises.readdir(imagesDir);
+    //     //     imageFiles = files
+    //     //         .filter(file => imageExtensions.includes(path.extname(file).toLowerCase()))
+    //     //         .filter(file => {
+    //     //             const lowerFile = file.toLowerCase();
+    //     //             return !lowerFile.includes('특허') &&
+    //     //                    !lowerFile.includes('patent') &&
+    //     //                    !lowerFile.includes('상표등록');
+    //     //         })
+    //     //         .map(file => `/images/${encodeURIComponent(file)}`)
+    //     //         .sort()
+    //     //         .slice(0, numberOfImages); // Limit to same number of images
+    //     // } catch (fallbackError) {
+    //     //     console.error('Error reading fallback images:', fallbackError);
+    //     //     imageFiles = [
+    //     //         '/images/cartoon_1.png',
+    //     //         '/images/cartoon_2.png',
+    //     //         '/images/cartoon_3.png',
+    //     //         '/images/cartoon_4.png'
+    //     //     ];
+    //     // }
+    // }
     const metadata = {
       audioUrl: `audio/${jobId}-audio.wav`,
       images: imageFiles,
@@ -97,5 +110,6 @@ async function createAssets(topic: string, voiceName: string){
   
     await fs.promises.writeFile(`./public/metadata/${jobId}-metadata.json`, JSON.stringify(metadata, null, 2));
 }
-
-createAssets("간헐적 단식의 장점", "Jessica") //(비디오 주제 topic, 음성이름)
+//
+//createAssets("간헐적 단식의 장점", "Jessica") //(비디오 주제 topic, 음성이름)
+createAssets("간헐적 단식의 장점", "ko-KR-Standard-A") //(비디오 주제 topic, 한국어 음성이름)
